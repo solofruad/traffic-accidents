@@ -1,0 +1,66 @@
+<div id="homepage" :class="[heroHeightSet ? '' : 'uninitialized']" v-cloak>
+  <div class="hero d-flex flex-column justify-content-center" full-page-hero>
+    <div class="container text-center">
+      <img alt="Tagenta.io logo" src="/images/tagenta-logo.png"/>
+      <h1 class="text-muted">Etiquetador de texto. <span class="text-secondary">Crowdsourcing.</span></h1>
+      <div>
+        <div class="more-info-text text-info" @click="clickHeroButton()">
+          <div class="text">Comienza</div>
+          <div class="icon">&darr;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-wrapper bg-dark" role="scroll-destination">
+    <div class="container">
+      <ajax-form action="uploadTag" :syncing,sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingUploadTagForm" @submitted="submittedUploadTagForm($event)">
+        <div class="about text-center">
+          <h3>¿El siguiente texto hace referencia sobre accidentes de tránsito?</h3>
+          <div class="post-wrapper text-muted p-3 mb-5 bg-white rounded" ref="textPost">
+            <p>{{post.id}} - {{post.text}}</p>
+          </div>
+          <label>¿Quien está clasificando? &nbsp; </label><input v-model="uploadFormData.username" :disabled="isLogged" type="email" placeholder="username@unal.edu.co">
+        </div>
+        <div class="features text-center">
+          <div class="row">
+            <div class="feature col-sm">
+              <button type="submit" class="icon bg-success btn" @click="setLabelFormData(1)">
+                <i class="fa fa-check"></i>
+              </button>
+              <h4>Si</h4>
+              <p>El texto esta habla de un accidente de tránsito. Hace referencia de un vehiculo o persona implicada en el incidente y la dirección de los hechos</p>
+            </div>
+            <div class="col-sm feature">
+              <button type="submit" class="icon bg-danger btn" @click="setLabelFormData(0)">
+                <i class="fa fa-times"></i>
+              </button>
+              <h4>No</h4>
+              <p>Let your friends know you care by trusting them with your personal property.</p>
+            </div>
+            <div class="col-sm feature">
+              <button type="submit" class="icon bg-secondary btn" @click="setLabelFormData(2)">
+                <i class="fa fa-ban"></i>
+              </button>
+              <h4>No responde</h4>
+              <p>Get seldom-used, fleetingly-needed items from friends instead of buying them new.</p>
+            </div>
+          </div>
+          <!--<a class="btn btn-outline-success mt-5" href="/signup">Join now</a>-->
+        </div>
+      </ajax-form>
+    </div>
+  </div>
+  <div class="more-info-wrapper">
+    <div class="container">
+      <div class="text-center">
+        <h3>¿Qué es esto?</h3>
+        <p>Esto es una investigación sobre accidentes de tránsito en la ciudad de Bogotá del <a target="_blank" href="https://ingenieria.bogota.unal.edu.co/es/dependencias/departamentos/departamento-de-ingenieria-de-sistemas-e-industrial.html">departamento de Ingeniería de Sistemas e Industrial</a> de la <a target="_blank" href="https://unal.edu.co">Universidad Nacional de Colombia</a></p>
+        <p>El objetivo de esta página es encontrar colaboración de personas para etiquetar un conjunto de textos extraidos de Twitter &copy;, estas publicaciones son tomadas de los twitteros de Bogotá que en su día a dias generan contenidos de toda índole, en esta ocasión se espera que las personas en esta página clasifiquen de los tweets mostrados cuales hacen referencia a accidentes de tránsito ocurridos en Bogotá y cuales no.</p>
+        <!--<a class="btn btn-primary mt-3 mb-4 mr-2" target="_blank" href="https://courses.platzi.com/classes/sails-js/">Take the course</a>
+        <a class="btn btn-outline-primary mt-3 mb-4" target="_blank" href="https://github.com/mikermcneil/ration">Download source code</a>-->
+        <span class="btn btn-outline-primary mt-3 mb-4">Gracias</span>
+      </div>
+    </div>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

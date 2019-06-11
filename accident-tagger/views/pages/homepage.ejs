@@ -15,34 +15,44 @@
     <div class="container">
       <ajax-form action="uploadTag" :syncing,sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingUploadTagForm" @submitted="submittedUploadTagForm($event)">
         <div class="about text-center">
-          <h3>¿El siguiente texto hace referencia sobre accidentes de tránsito?</h3>
+          <h3>¿El texto hace referencia sobre un <span class="font-weight-bold text-uppercase">accidente de tránsito</span> ocurrido?</h3>
           <div class="post-wrapper text-muted p-3 mb-5 bg-white rounded" ref="textPost">
-            <p>{{post.id}} - {{post.text}}</p>
+            <p>{{post.text}}</p>
           </div>
-          <label>¿Quien está clasificando? &nbsp; </label><input v-model="uploadFormData.username" :disabled="isLogged" type="email" placeholder="username@unal.edu.co">
+          <div class="form-inline justify-content-center">
+            <label for="inputEmailUser" class="my-1 mr-2">Su correo electrónico:</label>
+            <input id="inputEmailUser" v-model="uploadFormData.username" :disabled="isLogged" type="email" placeholder="username@unal.edu.co"
+                   class="form-control my-1 mr-sm-2" :class="{ 'is-invalid' : !isEmail}">
+            <a href="javascript:void(0)" class="btn btn-outline-light my-1 mr-sm-2" @click="startLabeling">
+              <i class="fa fa-repeat" :hidden="!isEmail"></i><span :hidden="isEmail">Comenzar!</span>
+            </a>
+            <span class="invalid-feedback my-1 mr-sm-2">
+              Escriba un correo electrónico válido
+            </span>
+          </div>
         </div>
         <div class="features text-center">
           <div class="row">
             <div class="feature col-sm">
-              <button type="submit" class="icon bg-success btn" @click="setLabelFormData(1)">
+              <button type="submit" class="icon bg-success btn" :disabled="disableButton" @click="setLabelFormData(1)">
                 <i class="fa fa-check"></i>
               </button>
               <h4>Si</h4>
-              <p>El texto esta habla de un accidente de tránsito. Hace referencia de un vehiculo o persona implicada en el incidente y la dirección de los hechos</p>
+              <p>El texto hace referencia de manera clara un accidente de tránsito que esta sucediendo o que sucedió en alguna vía, o un incidente en la vía que implica algún vehiculo, peatón o ciclista.</p>
             </div>
             <div class="col-sm feature">
-              <button type="submit" class="icon bg-danger btn" @click="setLabelFormData(0)">
+              <button type="submit" class="icon bg-danger btn" :disabled="disableButton" @click="setLabelFormData(0)">
                 <i class="fa fa-times"></i>
               </button>
               <h4>No</h4>
-              <p>Let your friends know you care by trusting them with your personal property.</p>
+              <p>El texto no habla de ningún accidente de tránsito, puede hacer referencia de algún evento de tránsito, o un accidente aéreo, o simplemente habla sobre la vida cotidiana de los usuarios en las redes sociales.</p>
             </div>
             <div class="col-sm feature">
-              <button type="submit" class="icon bg-secondary btn" @click="setLabelFormData(2)">
+              <button type="submit" class="icon bg-secondary btn" :disabled="disableButton" @click="setLabelFormData(2)">
                 <i class="fa fa-ban"></i>
               </button>
               <h4>No responde</h4>
-              <p>Get seldom-used, fleetingly-needed items from friends instead of buying them new.</p>
+              <p>No esta claro, el texto hace referencia a un accidente de tránsito, pero hay ambigüedad, o hace referencia alguna estadistica o noticias relacionadas pero no un hecho ocurrido en la vía.</p>
             </div>
           </div>
           <!--<a class="btn btn-outline-success mt-5" href="/signup">Join now</a>-->
@@ -55,10 +65,10 @@
       <div class="text-center">
         <h3>¿Qué es esto?</h3>
         <p>Esto es una investigación sobre accidentes de tránsito en la ciudad de Bogotá del <a target="_blank" href="https://ingenieria.bogota.unal.edu.co/es/dependencias/departamentos/departamento-de-ingenieria-de-sistemas-e-industrial.html">departamento de Ingeniería de Sistemas e Industrial</a> de la <a target="_blank" href="https://unal.edu.co">Universidad Nacional de Colombia</a></p>
-        <p>El objetivo de esta página es encontrar colaboración de personas para etiquetar un conjunto de textos extraidos de Twitter &copy;, estas publicaciones son tomadas de los twitteros de Bogotá que en su día a dias generan contenidos de toda índole, en esta ocasión se espera que las personas en esta página clasifiquen de los tweets mostrados cuales hacen referencia a accidentes de tránsito ocurridos en Bogotá y cuales no.</p>
+        <p>El objetivo de esta página es encontrar colaboración de personas para etiquetar un conjunto de textos extraídos de Twitter ©, estas publicaciones son tomadas de los twitteros de Bogotá que en su día a día generan contenidos de toda índole, en esta ocasión se espera que las personas en esta página clasifiquen de los tweets mostrados cuales hacen referencia a accidentes de tránsito ocurridos en Bogotá y cuales no.</p>
         <!--<a class="btn btn-primary mt-3 mb-4 mr-2" target="_blank" href="https://courses.platzi.com/classes/sails-js/">Take the course</a>
         <a class="btn btn-outline-primary mt-3 mb-4" target="_blank" href="https://github.com/mikermcneil/ration">Download source code</a>-->
-        <span class="btn btn-outline-primary mt-3 mb-4">Gracias</span>
+        <span class="btn btn-outline-primary mt-3 mb-4">Gracias por su contribución</span>
       </div>
     </div>
   </div>

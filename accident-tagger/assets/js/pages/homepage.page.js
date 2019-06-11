@@ -14,6 +14,8 @@ parasails.registerPage('homepage', {
       id: '',
     },
     isLogged: false,
+    disableButton: false,
+    isEmail: false,
     syncing: false,
     formErrors: {},
     cloudError: '',
@@ -30,11 +32,14 @@ parasails.registerPage('homepage', {
   },
   mounted: async function(){
     this._setHeroHeight();
-    this.post = await Cloud.getPost('');
+    this.post = await Cloud.getPost();
     this.uploadFormData.id = this.post.id;
+    this.disableButton = this.post.id <= 0;
     if(this.me){
       this.uploadFormData.username = this.me.emailAddress;
+      this.isEmail = true;
       this.isLogged = true;
+      this.clickHeroButton();
     }
   },
 
@@ -61,6 +66,22 @@ parasails.registerPage('homepage', {
       this.heroHeightSet = true;
     },
 
+    getPost: async function(){
+      this.post = {};
+      var style = "post-wrapper text-muted p-3 mb-5 bg-white rounded";
+      this.$refs.textPost.className = "post-wrapper text-muted p-3 mb-5 bg-dark rounded";
+      var fecth = await Cloud.getPost(this.uploadFormData.username);
+
+      setTimeout(()=>{
+        this.post = fecth;
+        this.uploadFormData.id = this.post.id;
+        this.$refs.textPost.className = style;
+        this.disableButton = this.post.id <= 0;
+        this.clickHeroButton();
+      },100);
+    },
+
+    //Antes de mandar los datos al servidor
     handleParsingUploadTagForm: function(){
       // clear out any pre-existing error messages
       this.formErrors = {};
@@ -71,24 +92,31 @@ parasails.registerPage('homepage', {
       return argins;
     },
 
-
+    // Después de que los datos son enviados al servidor
     submittedUploadTagForm: async function(result){
-      this.post = {};
-      var style = "post-wrapper text-muted p-3 mb-5 bg-white rounded";
-      this.$refs.textPost.className = "post-wrapper text-muted p-3 mb-5 bg-dark rounded";
-      var fecth = await Cloud.getPost(this.uploadFormData.username);
-      setTimeout(()=>{
-        this.post = fecth;
-        this.uploadFormData.id = this.post.id;
-        this.$refs.textPost.className = style;
-      },100);
-
-
+      this.getPost();
     },
 
     setLabelFormData: function (event) {
       this.uploadFormData.label = event;
+    },
+
+    startLabeling: function () {
+      if(this.validateEmail(this.uploadFormData.username)){
+        this.disableButton = false;
+        this.isEmail = true;
+        this.getPost();
+      }else{
+        this.isEmail = false;
+      }
+    },
+
+    validateEmail: function(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
     }
+
+
 
   }
 });

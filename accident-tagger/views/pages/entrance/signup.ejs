@@ -1,50 +1,50 @@
 <div id="signup" v-cloak>
   <div class="container" v-if="!cloudSuccess">
-    <h1 class="text-center">Create an account</h1>
+    <h1 class="text-center">Crear una cuenta</h1>
     <div class="signup-form">
-      <p class="text-center">Let's get started! Becoming a member is free and only takes a few minutes.</p>
+      <p class="text-center">¡Empecemos! Convertirse en miembro es gratis y solo toma unos minutos.</p>
       <hr/>
       <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm">
         <div class="form-group">
-          <label for="full-name">Full name</label>
-          <input class="form-control" id="full-name" type="text"  :class="[formErrors.fullName ? 'is-invalid' : '']" v-model.trim="formData.fullName" placeholder="Sturgis P. Sturgeon" autocomplete="name" focus-first>
-          <div class="invalid-feedback" v-if="formErrors.fullName">Please enter your full name.</div>
+          <label for="full-name">Nombre completo</label>
+          <input class="form-control" id="full-name" type="text"  :class="[formErrors.fullName ? 'is-invalid' : '']" v-model.trim="formData.fullName" placeholder="Néstor Suat Rojas" autocomplete="name" focus-first>
+          <div class="invalid-feedback" v-if="formErrors.fullName">Por favor ingrese su nombre completo.</div>
         </div>
         <div class="form-group">
-          <label for="email-address">Email address</label>
-          <input class="form-control" id="email-address" type="email"  :class="[formErrors.emailAddress ? 'is-invalid' : '']" v-model.trim="formData.emailAddress" placeholder="sturgeon@example.com" autocomplete="email">
-          <div class="invalid-feedback" v-if="formErrors.emailAddress">Please enter a valid email address.</div>
+          <label for="email-address">Correo electrónico</label>
+          <input class="form-control" id="email-address" type="email"  :class="[formErrors.emailAddress ? 'is-invalid' : '']" v-model.trim="formData.emailAddress" placeholder="nsuat@example.com" autocomplete="email">
+          <div class="invalid-feedback" v-if="formErrors.emailAddress">Por favor ingrese una dirección de email válida.</div>
         </div>
         <div class="form-group">
-          <label for="password">Choose a password</label>
+          <label for="password">Escriba una contraseña</label>
           <input class="form-control" id="password" type="password"  :class="[formErrors.password ? 'is-invalid' : '']" v-model.trim="formData.password" placeholder="••••••••" autocomplete="new-password">
-          <div class="invalid-feedback" v-if="formErrors.password">Please enter a password.</div>
+          <div class="invalid-feedback" v-if="formErrors.password">Por favor ingrese una contraseña.</div>
         </div>
         <div class="form-group">
-          <label for="confirm-password">Confirm password</label>
+          <label for="confirm-password">Repetir su contraseña</label>
           <input class="form-control" id="confirm-password" type="password"  :class="[formErrors.confirmPassword ? 'is-invalid' : '']" v-model.trim="formData.confirmPassword" placeholder="••••••••" autocomplete="new-password">
-          <div class="invalid-feedback" v-if="formErrors.confirmPassword">Your password and confirmation do not match.</div>
+          <div class="invalid-feedback" v-if="formErrors.confirmPassword">Las contraseñas no coinciden</div>
         </div>
         <div class="form-group form-check">
           <input class="form-check-input" id="terms-agreement" type="checkbox" v-model="formData.agreed">
-          <label for="terms-agreement" class="form-check-label" :class="[formErrors.agreed ? 'text-danger' : '']">I have read &amp; agree to the <a target="_blank" href="/terms">terms of service</a>.</label>
+          <label for="terms-agreement" class="form-check-label" :class="[formErrors.agreed ? 'text-danger' : '']">He leído &amp; acepto los <a target="_blank" href="/terms">terminos del servicio</a>.</label>
         </div>
-        <p class="text-danger" v-if="cloudError==='emailAlreadyInUse'"><small>It looks like there's already an account with your email address. If you forgot your password, you can recover it <a href="password/forgot">here</a>.</small></p>
-        <p class="text-danger" v-else-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/support">contact support</a> if the error persists.</small></p>
+        <p class="text-danger" v-if="cloudError==='emailAlreadyInUse'"><small>Parece que ya hay una cuenta con tu dirección de correo electrónico. Si olvidó su contraseña, puede recuperarla <a href="password/forgot">aquí</a>.</small></p>
+        <p class="text-danger" v-else-if="cloudError"><small>Se produjo un error al procesar su solicitud. Por favor verifique su información y vuelva a intentarlo, o <a href="/support">contactar soporte</a> si el problema persiste.</small></p>
         <div class="form-group">
-          <ajax-button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Create account</ajax-button>
+          <ajax-button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Crear una cuenta</ajax-button>
         </div>
       </ajax-form>
-      <p class="text-center">Have an account? <a href="/login">Sign in</a></p>
+      <p class="text-center">Tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
     </div>
   </div>
   <div class="container" v-if="cloudSuccess">
-    <h1 class="text-center">Check your email!</h1>
+    <h1 class="text-center">Consulta su correo electrónico!</h1>
     <div class="success-message">
       <hr/>
-      <p>Your account is nearly ready. All you have to do is click the link we sent to <strong>{{formData.emailAddress}}</strong>.</p>
-      <p>(You can still access your dashboard now, but some features will be unvavailable until we've verified your email address.)</p>
-      <p><a class="btn btn-outline-info" href="/">Go to dashboard</a></p>
+      <p>Su cuenta está casi lista. Todo lo que tienes que hacer es hacer clic en el enlace que enviamos a <strong>{{formData.emailAddress}}</strong>.</p>
+      <p>(Aún puede acceder a su panel de control ahora, pero algunas funciones no estarán disponibles hasta que hayamos verificado su dirección de correo electrónico.)</p>
+      <p><a class="btn btn-outline-info" href="/">Ir al panel</a></p>
     </div>
   </div>
 </div>

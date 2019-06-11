@@ -35,33 +35,37 @@
         <div class="navbar-nav flex-row">
           <!-- LOGGED-IN NAVIGATION -->
           <% if(me) { %>
+            <!--
             <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'friends' ? 'current' : ''%>"
                href="/friends">Friends</a>
             <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'things' ? 'current' : ''%>"
                href="/things">Things</a>
+           -->
             <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'contact' ? 'current' : ''%>"
-               href="/contact">Help</a>
+               href="/contact">Ayuda</a>
             <!-- Only in desktop nav -->
             <div class="nav-item dropdown d-none d-md-block">
-              <a class="nav-link dropdown-toggle text-dark ml-2 <%= typeof currentSection !== 'undefined' && currentSection === 'contact' ? 'current' : ''%>" id="header-account-menu-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+              <a class="nav-link dropdown-toggle text-dark ml-2 <%= typeof currentSection !== 'undefined' && currentSection === 'contact' ? 'current' : ''%>" id="header-account-menu-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Perfil</a>
               <div class="dropdown-menu account-menu" aria-labelledby="header-account-menu-link">
-                <a class="dropdown-item" href="/account">Settings</a>
-                <a class="dropdown-item" href="/logout">Sign out</a>
+                <a class="dropdown-item" href="/account">Configuración</a>
+                <a class="dropdown-item" href="/logout">Salir</a>
               </div>
             </div>
             <!-- Only in mobile nav -->
-            <a class="nav-item nav-link text-dark ml-2 mr-2 d-block d-md-none" href="/account">Account</a>
-            <a class="nav-item nav-link text-dark ml-2 mr-2 d-block d-md-none" href="/logout">Sign out</a>
+            <a class="nav-item nav-link text-dark ml-2 mr-2 d-block d-md-none" href="/account">Perfil</a>
+            <a class="nav-item nav-link text-dark ml-2 mr-2 d-block d-md-none" href="/logout">Salir</a>
           <% } else { %>
             <!-- LOGGED-OUT NAVIGATION -->
+            <!--
             <a class="nav-item nav-link ml-2 mr-2" href="/faq">FAQ</a>
-            <a class="nav-item nav-link ml-2 mr-2" href="/login">Log in</a>
+            -->
+            <a class="nav-item nav-link ml-2 mr-2" href="/login">Iniciar sesión</a>
             <!-- Only in desktop nav -->
             <div class="form-inline d-none ml-2 d-md-block" >
-              <a class="btn btn-outline-info" href="/signup">Sign up</a>
+              <a class="btn btn-outline-info" href="/signup">Registrar</a>
             </div>
             <!-- Only in mobile nav -->
-            <a class="nav-item nav-link text-info ml-2 d-block d-md-none" href="/signup">Sign up</a>
+            <a class="nav-item nav-link text-info ml-2 d-block d-md-none" href="/signup">Registrar</a>
           <% } %>
         </div>
       </header>
@@ -70,13 +74,14 @@
       <% if(me&&me.emailChangeCandidate) { %>
       <div class="container-fluid">
         <div class="alert alert-secondary mt-2" role="alert">
-        Your updated email address needs verification. Until you click the link sent to <strong><%= me.emailChangeCandidate %></strong>, you'll still need to sign in as <strong><%= me.emailAddress %></strong>.
+          Su dirección de correo electrónico actualizada necesita verificación. Hasta que haga clic en el enlace enviado a<strong><%= me.emailChangeCandidate %></strong>, todavía tendrás que iniciar sesión como <strong><%= me.emailAddress %></strong>.
         </div>
       </div>
       <% } else if(me&&me.emailStatus === 'unconfirmed') { %>
       <div class="container-fluid">
         <div class="alert alert-secondary mt-2" role="alert">
-        Your email address still needs verification. Your account access may be limited until you click the link sent to <strong><%= me.emailChangeCandidate ? me.emailChangeCandidate : me.emailAddress%></strong>.
+          Su dirección de correo electrónico todavía necesita verificación. El acceso a su cuenta puede estar limitado hasta que haga clic en el enlace enviado a
+          <strong><%= me.emailChangeCandidate ? me.emailChangeCandidate : me.emailAddress%></strong>.
         </div>
       </div>
       <% } %>
@@ -85,14 +90,16 @@
 
       <footer id="page-footer" class="navbar navbar-light justify-content-between flex-row-reverse">
         <div class="nav">
-          <small class="nav-item"><a class="nav-link text-info" href="/contact">Contact<span class="d-none d-sm-inline"> us</span></a></small>
+          <small class="nav-item"><a class="nav-link text-info" href="/contact">Contáctenos</a></small>
+          <!--
           <small class="nav-item"><a class="nav-link text-info" href="/legal/terms">Terms<span class="d-none d-sm-inline"> of Use</span></a></small>
           <small class="nav-item"><a class="nav-link text-info" href="/legal/privacy">Privacy<span class="d-none d-sm-inline"> policy</span></a></small>
+          -->
           <% if(me) { %>
-          <small class="nav-item"><a class="nav-link text-info" href="/logout">Sign out</a></small>
+          <small class="nav-item"><a class="nav-link text-info" href="/logout">Cerrar sesión</a></small>
           <% } %>
         </div>
-        <small class="copy">Copyright &copy;&copy; 2018 Néstor Suat-Rojas. <br class="xs-only"/>All rights reserved.</small>
+        <small class="copy">Copyleft &copy;&copy; 2019 Néstor Suat-Rojas. <br class="xs-only"/>Universidad Nacional de Colombia.</small>
       </footer>
     </div>
 

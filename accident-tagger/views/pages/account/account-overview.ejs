@@ -1,41 +1,41 @@
 <div id="account-overview" v-cloak>
   <div class="container">
-    <h1>My account</h1>
+    <h1>Mi cuenta</h1>
     <hr/>
     <div class="row mb-3">
       <div class="col-sm-6">
-        <h4>Personal information</h4>
+        <h4>Información personal</h4>
       </div>
       <div class="col-sm-6">
         <span class="float-sm-right">
-          <a class="btn btn-sm btn-outline-info account-settings-button" href="/account/profile">Edit profile</a>
+          <a class="btn btn-sm btn-outline-info account-settings-button" href="/account/profile">Editar perfil</a>
         </span>
       </div>
     </div>
     <div class="row">
-      <div class="col-3">Name:</div>
+      <div class="col-3">Nombre:</div>
       <div class="col"><strong>{{me.fullName}}</strong></div>
     </div>
     <div class="row">
       <div class="col-3">Email:</div>
       <div class="col">
         <strong :class="[me.emailStatus === 'unconfirmed' || me.emailStatus === 'changeRequested' ? 'text-muted' : '']">{{me.emailChangeCandidate ? me.emailChangeCandidate : me.emailAddress}}</strong>
-        <span v-if="me.emailStatus === 'unconfirmed' || me.emailStatus === 'changeRequested'" class="badge badge-pill badge-warning">Unverified</span>
+        <span v-if="me.emailStatus === 'unconfirmed' || me.emailStatus === 'changeRequested'" class="badge badge-pill badge-warning">No verificado</span>
       </div>
     </div>
     <hr/>
     <div class="row mb-3">
       <div class="col-sm-6">
-        <h4>Password</h4>
+        <h4>Contraseña</h4>
       </div>
       <div class="col-sm-6">
         <span class="float-sm-right">
-          <a class="btn btn-sm btn-outline-info account-settings-button" href="/account/password">Change password</a>
+          <a class="btn btn-sm btn-outline-info account-settings-button" href="/account/password">Cambiar contraseña</a>
         </span>
       </div>
     </div>
     <div class="row">
-      <div class="col-3">Password:</div>
+      <div class="col-3">Contraseña:</div>
       <div class="col"><strong>••••••••••</strong></div>
     </div>
     <hr/>

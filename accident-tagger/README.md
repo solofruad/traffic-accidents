@@ -22,13 +22,12 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 -->
 
 ### TODO
-* <b>Si el usuario esta logueado: </b> descartar tweets que ya están calificados por él.
-* <s>Revisar que las votaciones queden bien y no con el id del post duplicado</s>
 * Pulir cosas de interfaz link sueltos o algo parecido
+* Hacer funcionar correo electronico y contacto
+* Si la persona creo una cuenta, que no muestre tweets para etiquetar si el email no ha sido verificado
+* Que este responsive
 * Montar la base de datos
 * Hacer deploy
-* Dejar información de contacto
-* En post/get-post.js quitar comentarios cuando todo este funcionando a la maravilla
  
 ### Comandos de interes
 * sails generate page things/available-things

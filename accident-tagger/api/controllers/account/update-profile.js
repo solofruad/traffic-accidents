@@ -143,7 +143,7 @@ module.exports = {
     if (desiredEffectReEmail === 'beginChange' || desiredEffectReEmail === 'modifyPendingChange') {
       await sails.helpers.sendTemplateEmail.with({
         to: newEmailAddress,
-        subject: 'Your account has been updated',
+        subject: 'Tu cuenta ha sido actualizada',
         template: 'email-verify-new-email',
         templateData: {
           fullName: inputs.fullName||this.req.me.fullName,

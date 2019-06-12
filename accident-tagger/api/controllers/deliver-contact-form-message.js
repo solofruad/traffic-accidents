@@ -62,7 +62,7 @@ your custom config -- usually in \`config/custom.js\`, \`config/staging.js\`,
 
     await sails.helpers.sendTemplateEmail.with({
       to: sails.config.custom.internalEmailAddress,
-      subject: 'New contact form message',
+      subject: 'Nuevo mensaje de formulario de contacto',
       template: 'internal/email-contact-form',
       layout: false,
       templateData: {

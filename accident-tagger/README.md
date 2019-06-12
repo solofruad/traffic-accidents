@@ -23,7 +23,8 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 
 ### TODO
 * Pulir cosas de interfaz link sueltos o algo parecido
-* Hacer funcionar correo electronico y contacto
+* Hacer funcionar correo electronico y contacto para cualquier correo electronico (es decir, mailgun lo permita)
+* Poner logo en correo electronico layout-email.ejs, cambiar nombre en asunto de correo
 * Si la persona creo una cuenta, que no muestre tweets para etiquetar si el email no ha sido verificado
 * Que este responsive
 * Montar la base de datos

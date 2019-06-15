@@ -31,6 +31,13 @@ module.exports = {
         text: 'Para comenzar ingrese un correo electronico para identificarte como usuario y luego da click en comenzar'
       });
     }
+
+    if(this.req.me.emailStatus == 'unconfirmed'){
+      return exits.success({
+        id: -2,
+        text: 'Por favor confirme su correo electronico para comenzar a etiquetar, reconocer su identidad es muy útil para nosotros.'
+      })
+    }
     var record = undefined;
     var flat = false;
 

@@ -47,6 +47,9 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
+      adapter: 'sails-mongo',
+      //url: 'mysql://user:password@host:port/database',
+      url: 'mongodb://localhost:27017/accident',
       // adapter: 'sails-mysql',
       // url: 'mysql://user:password@host:port/database',
       //--------------------------------------------------------------------------
@@ -250,10 +253,11 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    // onlyAllowOrigins: [
-    //   'https://example.com',
-    //   'https://staging.example.com',
-    // ],
+     onlyAllowOrigins: [
+       'https://localhost:1337'
+     //  'https://example.com',
+     //  'https://staging.example.com',
+     ],
 
 
     /***************************************************************************
@@ -337,7 +341,7 @@ module.exports = {
   * this, just try deploying without setting it and see if it works.)       *
   *                                                                         *
   ***************************************************************************/
-  // port: 80,
+   port: 80,
 
 
 
@@ -371,9 +375,11 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://example.com',
-    internalEmailAddress: 'support@example.com',
+    baseUrl: 'http://localhost',
+    internalEmailAddress: 'nsuat@unal.edu.co',
 
+    mailgunDomain: 'sandbox19c449f6f4794415be69144343cab9ac.mailgun.org',
+    mailgunSecret: '5dbf8f4c68cd409ba7ac4acac648e698-16ffd509-636eafe2',
     // mailgunDomain: 'mg.example.com',
     // mailgunSecret: 'key-prod_fake_bd32301385130a0bafe030c',
     // stripeSecret: 'sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm',

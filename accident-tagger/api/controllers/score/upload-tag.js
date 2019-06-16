@@ -9,7 +9,7 @@ module.exports = {
 
   inputs: {
     id:{
-      type: 'number',
+      type: 'string',
       description: 'ID en la API del Tweet',
       required: true
     },

@@ -13,7 +13,7 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     id_source:{
-      type: 'number',
+      type: 'string',
       unique: true,
       example: 1234567890123,
       description: 'El identificador original de la publicacíón en la red social asociada.',

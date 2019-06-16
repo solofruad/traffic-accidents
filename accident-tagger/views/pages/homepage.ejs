@@ -1,8 +1,8 @@
 <div id="homepage" :class="[heroHeightSet ? '' : 'uninitialized']" v-cloak>
   <div class="hero d-flex flex-column justify-content-center" full-page-hero>
     <div class="container text-center">
-      <img alt="Tagenta.io logo" src="/images/tagenta-logo.png"/>
-      <h1 class="text-muted">Etiquetador de texto. <span class="text-secondary">Crowdsourcing.</span></h1>
+      <img alt="Tagenta.io logo" class="w-100" src="/images/tagenta-logo.png"/>
+      <h2 class="text-muted sm">Etiquetador de texto. <span class="text-secondary">Crowdsourcing.</span></h2>
       <div>
         <div class="more-info-text text-info" @click="clickHeroButton()">
           <div class="text">Comienza</div>
@@ -15,8 +15,8 @@
     <div class="container">
       <ajax-form action="uploadTag" :syncing,sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingUploadTagForm" @submitted="submittedUploadTagForm($event)">
         <div class="about text-center">
-          <h3>¿El texto hace referencia sobre un <span class="font-weight-bold text-uppercase">accidente de tránsito</span> ocurrido?</h3>
-          <div class="post-wrapper text-muted p-3 mb-5 bg-white rounded" ref="textPost">
+          <div class="question">¿El texto hace referencia sobre un <span class="font-weight-bold text-uppercase">accidente de tránsito</span> ocurrido?</div>
+          <div class="post-wrapper text-muted bg-white rounded" ref="textPost">
             <p>{{post.text}}</p>
           </div>
           <div class="form-inline justify-content-center">
@@ -33,21 +33,21 @@
         </div>
         <div class="features text-center">
           <div class="row">
-            <div class="feature col-sm">
+            <div class="feature col">
               <button type="submit" class="icon bg-success btn" :disabled="disableButton" @click="setLabelFormData(1)">
                 <i class="fa fa-check"></i>
               </button>
               <h4>Si</h4>
               <p>El texto hace referencia de manera clara un accidente de tránsito que esta sucediendo o que sucedió en alguna vía, o un incidente en la vía que implica algún vehiculo, peatón o ciclista.</p>
             </div>
-            <div class="col-sm feature">
+            <div class="col feature">
               <button type="submit" class="icon bg-danger btn" :disabled="disableButton" @click="setLabelFormData(0)">
                 <i class="fa fa-times"></i>
               </button>
               <h4>No</h4>
               <p>El texto no habla de ningún accidente de tránsito, puede hacer referencia de algún evento de tránsito, o un accidente aéreo, o simplemente habla sobre la vida cotidiana de los usuarios en las redes sociales.</p>
             </div>
-            <div class="col-sm feature">
+            <div class="col feature">
               <button type="submit" class="icon bg-secondary btn" :disabled="disableButton" @click="setLabelFormData(2)">
                 <i class="fa fa-ban"></i>
               </button>

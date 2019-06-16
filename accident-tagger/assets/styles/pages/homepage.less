@@ -44,8 +44,11 @@
   .about-wrapper {
     color: @accent-white;
     .about {
-      padding-top: 75px;
+      padding-top: 2.5rem;
       padding-bottom: 0px;
+      .question{
+        font-size: 1.8rem;
+      }
       .post-wrapper{
         width: 80%;
         margin: 20px auto 10px auto !important;
@@ -95,4 +98,32 @@
       opacity: 0;
     }
   }
+  @media (max-width: 450px) {
+    .about-wrapper {
+      .about {
+        padding-top: 1rem;
+        .question{
+          font-size: 1.2rem;
+        }
+        .post-wrapper{
+          width: 90%;
+          font-size: medium;
+          min-height: 200px;
+          p {
+            //max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+
+      }
+      .features{
+        padding-top: 10px;
+        .feature{
+          font-size: x-small;
+        }
+      }
+    }
+  }
+
 }

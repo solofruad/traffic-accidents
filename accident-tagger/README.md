@@ -22,13 +22,13 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 -->
 
 ### TODO
-* Pulir cosas de interfaz link sueltos o algo parecido
+* <s>Pulir cosas de interfaz link sueltos o algo parecido</s>
 * Hacer funcionar correo electronico y contacto para cualquier correo electronico (es decir, mailgun lo permita)
 * Poner logo en correo electronico layout-email.ejs, cambiar nombre en asunto de correo
 * <s>Si la persona creo una cuenta, que no muestre tweets para etiquetar si el email no ha sido verificado</s>
 * <s>Hay q cambiar el asunto de los correos "Nestor Suat de Plas o algo asi</s>
-* Que este responsive
-* Montar la base de datos
+* <s>Que este responsive</s>
+* <s>Montar la base de datos</s>
 * Hacer deploy
  
 ### Comandos de interes

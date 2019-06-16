@@ -59,7 +59,7 @@ module.exports.bootstrap = async function(done) {
   }//∞
 
   // By convention, this is a good place to set up fake data during development.
-  await User.createEach([
+  /*await User.createEach([
     { emailAddress: 'nsuat@unal.edu.co', fullName: 'Néstor Suat-Rojas', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('1234') },
   ]);
 
@@ -69,7 +69,7 @@ module.exports.bootstrap = async function(done) {
     {id_source: 9012, created_at: '12/12/99', text: "Mientras a mis compañeras de la of las recogió el amort, el amigo, el clandestino para salvarlas del beshoo trancon y manifestaciones a mí me recoge el sitp o en su defecto la rutica pirata 😩😩😩"},
     {id_source: 3456, created_at: '12/12/99', text: "Incidente vial entre 2 particulares 🚘 en la Autosur con Av. Villavicencio.Unidad de 👮 TransitoBta asignada."},
   ]);
-
+*/
 
   // Save new bootstrap version
   await sails.helpers.fs.writeJson.with({

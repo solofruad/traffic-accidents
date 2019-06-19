@@ -48,7 +48,7 @@
 config/local.js
 config/custom.js
 config/ssl/
-
+*.csr
 ################################################
 # Dependencies
 #

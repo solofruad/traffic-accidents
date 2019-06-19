@@ -49,7 +49,7 @@ module.exports = {
     default: {
       adapter: 'sails-mongo',
       //url: 'mysql://user:password@host:port/database',
-      url: 'mongodb://localhost:27017/accident',
+      url: 'mongodb://accidente:4cc1d3nt3.infinito@localhost:27017/accident?authSource=admin',
       // adapter: 'sails-mysql',
       // url: 'mysql://user:password@host:port/database',
       //--------------------------------------------------------------------------
@@ -73,7 +73,7 @@ module.exports = {
       * https://sailsjs.com/config/datastores                                     *
       *                                                                           *
       ****************************************************************************/
-      // ssl: true,
+       //ssl: false,
 
     },
 
@@ -152,8 +152,8 @@ module.exports = {
     ***************************************************************************/
     cors: {
        allowOrigins: [
-         'http://localhost',
-         'http://127.0.0.1',
+         //'http://nsuat.me',
+         'https://www.nsuat.me',
        ]
     },
 
@@ -256,9 +256,9 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
      onlyAllowOrigins: [
-       'http://localhost',
-      'http://127.0.0.1',
-     //  'https://example.com',
+      // 'http://nsuat.me',
+      'http://www.nsuat.me',
+      'https://www.nsuat.me',
      //  'https://staging.example.com',
      ],
 
@@ -330,7 +330,7 @@ module.exports = {
     * (https://sailsjs.com/config/http)                                        *
     *                                                                          *
     ***************************************************************************/
-    // trustProxy: true,
+    trustProxy: true,
 
   },
 
@@ -345,8 +345,9 @@ module.exports = {
   * this, just try deploying without setting it and see if it works.)       *
   *                                                                         *
   ***************************************************************************/
-   port: 80,
-
+  // port: 80,
+  //port:443,
+  port:8080,
 
 
   /**************************************************************************
@@ -367,6 +368,11 @@ module.exports = {
   *                                                                         *
   **************************************************************************/
   // ssl: undefined,
+  ssl: {
+    ca: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/nsuat_me.ca-bundle')),
+    key: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/nsuat.key')),
+    cert: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/nsuat_me.crt'))
+  },
 
 
 
@@ -379,11 +385,12 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'http://localhost',
+    baseUrl: 'https://www.nsuat.me',
     internalEmailAddress: 'nsuat@unal.edu.co',
 
-    mailgunDomain: 'sandbox19c449f6f4794415be69144343cab9ac.mailgun.org',
-    mailgunSecret: '5dbf8f4c68cd409ba7ac4acac648e698-16ffd509-636eafe2',
+    //mailgunDomain: 'sandbox19c449f6f4794415be69144343cab9ac.mailgun.org',
+    mailgunDomain: 'mg.nsuat.me',
+    //mailgunSecret: '5dbf8f4c68cd409ba7ac4acac648e698-16ffd509-636eafe2',
     // mailgunDomain: 'mg.example.com',
     // mailgunSecret: 'key-prod_fake_bd32301385130a0bafe030c',
     // stripeSecret: 'sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm',

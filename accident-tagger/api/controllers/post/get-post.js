@@ -28,7 +28,9 @@ module.exports = {
     if(!this.req.me && !inputs.username) {
       return exits.success({
         id: 0,
-        text: 'Para comenzar ingrese un correo electronico para identificarte como usuario y luego da click en comenzar'
+        // Antes eso se hacía para usuarios no logueados pudieran etiquetar, esta caracteristicas cambio para solo usuarios registrados
+        // text: 'Para comenzar ingrese un correo electronico para identificarte como usuario y luego da click en comenzar'
+        text: 'Para comenzar inicie sesión con un usuario y contraseña valida, o por favor registrese con nosotros, reconocer su identidad es muy útil para nosotros.'
       });
     }
     if(this.req.me){

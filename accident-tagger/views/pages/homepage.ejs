@@ -14,7 +14,6 @@
   <div class="about-wrapper bg-dark" role="scroll-destination">
     <div class="container">
       <ajax-form action="uploadTag" :syncing,sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingUploadTagForm" @submitted="submittedUploadTagForm($event)">
-        <input type="hidden" name="_csrf" ref="_csrf" value="<%= _csrf%>">
         <div class="about text-center">
           <div class="question">¿El texto hace referencia sobre un <span class="font-weight-bold text-uppercase">accidente de tránsito</span> ocurrido?</div>
           <div class="post-wrapper text-muted bg-white rounded" ref="textPost">
@@ -27,8 +26,11 @@
             <a href="javascript:void(0)" class="btn btn-outline-light my-1 mr-sm-2" @click="startLabeling">
               <i class="fa fa-repeat" :hidden="!isEmail"></i><span :hidden="isEmail">Comenzar!</span>
             </a>
+            <a href="/account" class="btn btn-outline-info my-1 mr-sm-2 ml-1">
+              Ver progreso
+            </a>
             <span class="invalid-feedback my-1 mr-sm-2">
-              Escriba un correo electrónico válido
+              Inicie sesión con un usuario y contraseña correcta por favor.
             </span>
           </div>
         </div>

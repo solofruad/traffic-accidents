@@ -1,3 +1,9 @@
+/*
+  TODO:
+   Antes el sistema permitía etiquetar para usuarios externos, ahora solo se permite únicamente usuarios logueados.
+   Sin embargo no se cabmio nada del cóodigo, solo se cambio el valor del atribuo isLoggued a true, que antes se encontraba como false.
+ */
+
 parasails.registerPage('homepage', {
   //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
@@ -12,9 +18,11 @@ parasails.registerPage('homepage', {
       label: '',
       username: '',
       id: '',
-      _csrf: ''
     },
-    isLogged: false,
+    //Antes permitia que los usuarios no logueados pudieran etiquetar
+      //isLogged: false,
+    //Ahora solo los usuarios registrados pueden etiquetar
+    isLogged: true,
     disableButton: false,
     isEmail: false,
     syncing: false,
@@ -85,10 +93,7 @@ parasails.registerPage('homepage', {
     //Antes de mandar los datos al servidor
     handleParsingUploadTagForm: function(){
       // clear out any pre-existing error messages
-      console.log("hhelp");
       this.formErrors = {};
-      this.uploadFormData._csrf = this.$refs._csrf.value;
-      console.log(this.$refs._csrf.value);
       var argins = this.uploadFormData;
       if(Object.keys(this.formErrors).length > 0){
         return;

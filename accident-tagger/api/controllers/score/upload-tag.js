@@ -42,12 +42,10 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     if (parseInt(inputs.id) < 0){
-      console.log("her");
       return exits.success({
         id: -1
       });
     }
-    console.log("outside");
     var isLogged = this.req.me ? 1 : 0;
     //Crear la clasificación
     var newScore = await Score.create({

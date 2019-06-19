@@ -50,8 +50,8 @@ module.exports.datastores = {
     ***************************************************************************/
      adapter: 'sails-mongo',
      //url: 'mysql://user:password@host:port/database',
-     //url: 'mongodb://accidente:4cc1d3nt3.infinito@localhost:27017/accident?authSource=admin', 
-url: 'mongodb://accidente:4cc1d3nt3.infinito@localhost:27017/accident?authSource=admin',
+     url: 'mongodb://localhost:27017/accident',
+     //url: 'mongodb://accidente:4cc1d3nt3.infinito@localhost:27017/accident?authSource=admin',
 
   },
 

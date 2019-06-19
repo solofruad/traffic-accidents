@@ -151,9 +151,10 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
-      // allowOrigins: [
-      //   'https://example.com',
-      // ]
+       allowOrigins: [
+         'http://localhost',
+         'http://127.0.0.1',
+       ]
     },
 
   },
@@ -188,6 +189,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     adapter: '@sailshq/connect-redis',
+    url: 'redis://@localhost:6379',
     // url: 'redis://user:password@localhost:6379/databasenumber',
     //--------------------------------------------------------------------------
     // /\   OR, to avoid checking it in to version control, you might opt to
@@ -254,7 +256,8 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
      onlyAllowOrigins: [
-       'https://localhost:1337'
+       'http://localhost',
+      'http://127.0.0.1',
      //  'https://example.com',
      //  'https://staging.example.com',
      ],
@@ -272,7 +275,8 @@ module.exports = {
     * (https://sailsjs.com/docs/concepts/deployment/scaling)                   *
     *                                                                          *
     ***************************************************************************/
-    // adapter: '@sailshq/socket.io-redis',
+    adapter: '@sailshq/socket.io-redis',
+    url: 'redis://@localhost:6379/0',
     // url: 'redis://user:password@bigsquid.redistogo.com:9562/databasenumber',
     //--------------------------------------------------------------------------
     // /\   OR, to avoid checking it in to version control, you might opt to

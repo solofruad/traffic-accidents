@@ -12,6 +12,7 @@ parasails.registerPage('homepage', {
       label: '',
       username: '',
       id: '',
+      _csrf: ''
     },
     isLogged: false,
     disableButton: false,
@@ -84,7 +85,10 @@ parasails.registerPage('homepage', {
     //Antes de mandar los datos al servidor
     handleParsingUploadTagForm: function(){
       // clear out any pre-existing error messages
+      console.log("hhelp");
       this.formErrors = {};
+      this.uploadFormData._csrf = this.$refs._csrf.value;
+      console.log(this.$refs._csrf.value);
       var argins = this.uploadFormData;
       if(Object.keys(this.formErrors).length > 0){
         return;

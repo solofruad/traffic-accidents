@@ -14,6 +14,7 @@
   <div class="about-wrapper bg-dark" role="scroll-destination">
     <div class="container">
       <ajax-form action="uploadTag" :syncing,sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingUploadTagForm" @submitted="submittedUploadTagForm($event)">
+        <input type="hidden" name="_csrf" ref="_csrf" value="<%= _csrf%>">
         <div class="about text-center">
           <div class="question">¿El texto hace referencia sobre un <span class="font-weight-bold text-uppercase">accidente de tránsito</span> ocurrido?</div>
           <div class="post-wrapper text-muted bg-white rounded" ref="textPost">

@@ -2,11 +2,43 @@
   <div class="hero d-flex flex-column justify-content-center" full-page-hero>
     <div class="container text-center">
       <img alt="Tagenta.io logo" class="w-100" src="/images/tagenta-logo.png"/>
-      <h2 class="text-muted sm">Etiquetador de texto. <span class="text-secondary">Crowdsourcing.</span></h2>
+      <h2 class="text-muted sm">Etiquetador de texto de accidentes de tránsito. <a href="https://youtu.be/QBb0tNAaS_4" target="_blank" class="text-info text"><h4>Ver guía.</h4></a></h2>
       <div>
         <div class="more-info-text text-info" @click="clickHeroButton()">
           <div class="text">Comienza</div>
           <div class="icon">&darr;</div>
+        </div>
+      </div>
+      <div class="card-deck mt-5">
+        <div class="card bg-dark text-white text-center p-3">
+          <blockquote class="blockquote mb-0">
+            <p>@transmisitp accidente en Av. Boyacá después de la 116, hay una persona fallecida, afectando el tráfico desde la Cl 72</p>
+            <footer class="blockquote-footer">
+              <small>
+                Algún usuario de <cite title="Source Title">Twitter</cite>
+              </small>
+            </footer>
+          </blockquote>
+        </div>
+        <div class="card bg-dark text-white text-center p-3">
+          <blockquote class="blockquote mb-0">
+            <p>@BogotaTransito choque saliendo del deprimido de la 100 con 15... por favor ayuda con un policia de tránsito! Cierre total.</p>
+            <footer class="blockquote-footer">
+              <small>
+                Algún usuario de <cite title="Source Title">Twitter</cite>
+              </small>
+            </footer>
+          </blockquote>
+        </div>
+        <div class="card bg-dark text-white text-center p-3">
+          <blockquote class="blockquote mb-0">
+            <p>Incidente vial entre bus 🚍 y un ciclista‍ 🚴🏽 en la calle 140 con carrera 12, sentido occidente - oriente. Unidad de 👮@TransitoBta y 🚑 asignadas.</p>
+            <footer class="blockquote-footer">
+              <small>
+                Algún usuario de <cite title="Source Title">Twitter</cite>
+              </small>
+            </footer>
+          </blockquote>
         </div>
       </div>
     </div>
@@ -16,12 +48,13 @@
       <ajax-form action="uploadTag" :syncing,sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingUploadTagForm" @submitted="submittedUploadTagForm($event)">
         <div class="about text-center">
           <div class="question">¿El texto hace referencia sobre un <span class="font-weight-bold text-uppercase">accidente de tránsito</span> ocurrido?</div>
+          <div class="text-info">#accidente #choque# #incidente vial</div>
           <div class="post-wrapper text-muted bg-white rounded" ref="textPost">
             <p>{{post.text}}</p>
           </div>
           <div class="form-inline justify-content-center">
-            <label for="inputEmailUser" class="my-1 mr-2">Su correo electrónico:</label>
-            <input id="inputEmailUser" v-model="uploadFormData.username" :disabled="isLogged" type="email" placeholder="username@unal.edu.co"
+            <!--<label for="inputEmailUser" class="my-1 mr-2">Su correo electrónico:</label>-->
+            <input id="inputEmailUser" v-model="uploadFormData.username" :disabled="isLogged" type="hidden" placeholder="username@unal.edu.co"
                    class="form-control my-1 mr-sm-2" :class="{ 'is-invalid' : !isEmail}">
             <a href="javascript:void(0)" class="btn btn-outline-light my-1 mr-sm-2" @click="startLabeling">
               <i class="fa fa-repeat" :hidden="!isEmail"></i><span :hidden="isEmail">Comenzar!</span>
@@ -41,14 +74,16 @@
                 <i class="fa fa-check"></i>
               </button>
               <h4>Si</h4>
-              <p>El texto hace referencia de manera clara un accidente de tránsito que esta sucediendo o que sucedió en alguna vía, o un incidente en la vía que implica algún vehiculo, peatón o ciclista.</p>
+              <p>El texto claramente está hablando de un accidente de tránsito en la vía, ocurrido o está ocurriendo, involucra algún vehículo, peatón o ciclista. O también hace referencia a un choque de tránsito. <span class="btn btn-link" @click="clickOpenDashboardModalButton()">Ver ejemplos...</span>
+              </p>
             </div>
             <div class="col feature">
               <button type="submit" class="icon bg-danger btn" :disabled="disableButton" @click="setLabelFormData(0)">
                 <i class="fa fa-times"></i>
               </button>
               <h4>No</h4>
-              <p>El texto no habla de ningún accidente de tránsito, puede hacer referencia de algún evento de tránsito, o un accidente aéreo, o simplemente habla sobre la vida cotidiana de los usuarios en las redes sociales.</p>
+              <p>El texto no habla de ningún accidente de tránsito, quizás hacer referencia a algún evento de tránsito (NO VIAL), o un accidente aéreo, o simplemente habla sobre la vida cotidiana de los usuarios en las redes sociales. <span class="btn btn-link" @click="clickOpenDashboardModalButtonNegativo()">Ver ejemplos...</span>
+              </p>
             </div>
             <div class="col feature">
               <button type="submit" class="icon bg-secondary btn" :disabled="disableButton" @click="setLabelFormData(2)">
@@ -76,5 +111,73 @@
       </div>
     </div>
   </div>
+  <modal class="example-modal" v-if="dashboardModalVisible" @close="closeDashboardModal()" v-cloak>
+    <div class="modal-header">
+      <h2 class="modal-title">Ejemplo de <span class="bg-success p-1 text-white rounded">Positivo</span></h2>
+      <p>Textos relacionados a accidentes de tránsito.</p>
+      <hr/>
+      <button type="button" class="modal-close-button" data-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <h5 class="section-heading">Reportes de Accidentes de tránsito.</h5>
+      <p>El texto claramente está hablando de un accidente de tránsito en la vía, ocurrido o está ocurriendo, involucra algún vehículo, peatón o ciclista. O también hace referencia a un choque de tránsito.</p>
+      <div class="row mb-2 mx-4 p-3 bg-dark rounded">
+        <img :src="imagesModal.img1" alt="" class="col">
+      </div>
+      <div class="row mb-2 mx-4 p-3 bg-dark rounded">
+        <img :src="imagesModal.img2" alt="" class="col">
+      </div>
+      <div class="row mb-2 mx-4 p-3 bg-dark rounded">
+        <img :src="imagesModal.img3" alt="" class="col">
+      </div>
+      <div class="row mb-2 mx-4 p-3 bg-dark rounded">
+        <img :src="imagesModal.img4" alt="" class="col">
+      </div>
+      <div class="row mb-2 mx-4 p-3 bg-dark rounded">
+        <img :src="imagesModal.img5" alt="" class="col">
+      </div>
+      <div class="row mb-2 mx-4 p-3 bg-dark rounded">
+        <img :src="imagesModal.img6" alt="" class="col">
+      </div>
+    </div>
+    <div class="modal-footer flex-row-reverse justify-content-between">
+      <button type="button" data-dismiss="modal" class="btn btn-info">Cerrar</button>
+      <button type="button" data-dismiss="modal" class="btn btn-outline-info">Cancelar</button>
+    </div>
+  </modal>
+  <modal class="example-modal" v-if="dashboardModalVisibleNegativo" @close="closeDashboardModalNegativo()" v-cloak>
+    <div class="modal-header">
+      <h2 class="modal-title">Ejemplo de <span class="bg-danger p-1 text-white rounded">Negativo</span></h2>
+      <p>Textos que no hacen referencia a ningún accidente de tránsito vehicular.</p>
+      <hr/>
+      <button type="button" class="modal-close-button" data-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <h5 class="section-heading">Publicaciones sobre otros temas.</h5>
+      <p>El texto no habla de ningún accidente de tránsito, quizás hacer referencia a algún evento de tránsito (NO VIAL), o un accidente aéreo, o simplemente habla sobre la vida cotidiana de los usuarios en las redes sociales.</p>
+      <div class="row mb-2 mx-4 p-3 bg-dark rounded">
+        <img :src="imagesModal.img1" alt="" class="col">
+      </div>
+      <div class="row mb-2 mx-4 p-3 bg-dark rounded">
+        <img :src="imagesModal.img2" alt="" class="col">
+      </div>
+      <div class="row mb-2 mx-4 p-3 bg-dark rounded">
+        <img :src="imagesModal.img3" alt="" class="col">
+      </div>
+      <div class="row mb-2 mx-4 p-3 bg-dark rounded">
+        <img :src="imagesModal.img4" alt="" class="col">
+      </div>
+      <div class="row mb-2 mx-4 p-3 bg-dark rounded">
+        <img :src="imagesModal.img5" alt="" class="col">
+      </div>
+      <div class="row mb-2 mx-4 p-3 bg-dark rounded">
+        <img :src="imagesModal.img6" alt="" class="col">
+      </div>
+    </div>
+    <div class="modal-footer flex-row-reverse justify-content-between">
+      <button type="button" data-dismiss="modal" class="btn btn-info">Cerrar</button>
+      <button type="button" data-dismiss="modal" class="btn btn-outline-info">Cancelar</button>
+    </div>
+  </modal>
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

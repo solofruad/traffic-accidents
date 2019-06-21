@@ -4,6 +4,7 @@
 /accident-tagger/config/custom.js
 /accident-tagger/.tmp
 
+*.tsv
 
 ################################################
 # Miscellaneous

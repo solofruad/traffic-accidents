@@ -28,6 +28,11 @@ parasails.registerPage('homepage', {
     syncing: false,
     formErrors: {},
     cloudError: '',
+    dashboardModalVisible: false,
+    dashboardModalVisibleNegativo: false,
+    imagesModal: {
+      img1: '', img2: '', img3: '', img4: '', img5: '', img6: ''
+    },
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -123,7 +128,46 @@ parasails.registerPage('homepage', {
     validateEmail: function(email) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
-    }
+    },
+    clickOpenDashboardModalButton: async function() {
+      this.imagesModal.img1 = "/images/positivo/1.png";
+      this.imagesModal.img2 = "/images/positivo/2.png";
+      this.imagesModal.img3 = "/images/positivo/3.png";
+      this.imagesModal.img4 = "/images/positivo/4.png";
+      this.imagesModal.img5 = "/images/positivo/5.png";
+      this.imagesModal.img6 = "/images/positivo/6.png";
+      this.dashboardModalVisible = true;
+    },
+
+    closeDashboardModal: async function() {
+      this.dashboardModalVisible = false;
+      this.imagesModal.img1 = "";
+      this.imagesModal.img2 = "";
+      this.imagesModal.img3 = "";
+      this.imagesModal.img4 = "";
+      this.imagesModal.img5 = "";
+      this.imagesModal.img6 = "";
+    },
+
+    clickOpenDashboardModalButtonNegativo: async function() {
+      this.imagesModal.img1 = "/images/negativo/1.png";
+      this.imagesModal.img2 = "/images/negativo/2.png";
+      this.imagesModal.img3 = "/images/negativo/3.png";
+      this.imagesModal.img4 = "/images/negativo/4.png";
+      this.imagesModal.img5 = "/images/negativo/5.png";
+      this.imagesModal.img6 = "/images/negativo/6.png";
+      this.dashboardModalVisibleNegativo = true;
+    },
+
+    closeDashboardModalNegativo: async function() {
+      this.dashboardModalVisibleNegativo = false;
+      this.imagesModal.img1 = "";
+      this.imagesModal.img2 = "";
+      this.imagesModal.img3 = "";
+      this.imagesModal.img4 = "";
+      this.imagesModal.img5 = "";
+      this.imagesModal.img6 = "";
+    },
 
 
 

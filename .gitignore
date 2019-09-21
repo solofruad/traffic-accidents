@@ -1,11 +1,13 @@
 /accident-tagger/node_modules
-
 /accident-tagger/config/local.js
 /accident-tagger/config/custom.js
 /accident-tagger/.tmp
 
 *.tsv
-
+*.xlsx
+*.npy
+*.model
+*.json
 ################################################
 # Miscellaneous
 #

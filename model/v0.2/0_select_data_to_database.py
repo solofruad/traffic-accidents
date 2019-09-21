@@ -34,7 +34,6 @@ def selectData(filename,opt,query):
 
     return data
 
-
 def removeRepeatText(data):
     data['text_secundary'] = ''
     data = data.reset_index(drop=True) # if limited the amount tweets drop index so that it does not interfere later in te for_each 
@@ -93,3 +92,29 @@ dataset['complete'] = 0
 dataset = dataset.rename(columns={'id_tweet':'id_source'})
 dataset['id_source'] = dataset['id_source'].astype(str)
 dataset.to_json("data/dataset_to_database.json",force_ascii=False, orient='records')
+
+
+
+"""
+    #TRAER TODOS LOS DATOS Y PASARLOS A LA BASE DE DATOS
+"""
+search = pd.read_csv("data/v0/1_search.tsv", delimiter = "\t", quoting = 3)
+search = search[['id_tweet','text','created_at', 'user_name']]
+
+
+timeline = pd.read_csv("data/v0/2_search_timeline_user.tsv", delimiter = "\t", quoting = 3)
+timeline = timeline[['id_tweet','text','created_at', 'user_name']]
+
+follow = pd.read_csv("data/v0/3_stream_follow_user.tsv", delimiter = "\t", quoting = 3)
+follow = follow[['id_tweet','text','created_at', 'user_name']]
+
+bogota = pd.read_csv("data/v0/4_stream_bogota.tsv", delimiter = "\t", quoting = 3)
+bogota = bogota[['id_tweet','text','created_at', 'user_name']]
+
+track_spanish = pd.read_csv("data/v0/5_dataset-track-filter.tsv", delimiter = "\t", quoting = 3)
+track_spanish = track_spanish[['id_tweet','text','created_at', 'user_name']]
+
+dataset = pd.concat([search,timeline,follow,bogota,track_spanish])
+dataset = dataset.drop_duplicates(['id_tweet'],keep='first')
+dataset['id_tweet'] = dataset['id_tweet'].astype(str)
+dataset.to_json("data/dataset_to_database_complete.json",force_ascii=False, orient='records')

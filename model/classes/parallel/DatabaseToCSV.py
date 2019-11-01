@@ -28,11 +28,13 @@ class DatabaseToCSV: #Paralleling Process
             cursor = collection.find({ 'created_at': {'$gte': start, '$lt': end}  }, no_cursor_timeout=True).skip(skip_n).limit(limit_n)            
         return cursor
     
-    def build_df(self,collection, start, end, skip_n, limit_n,loader=0):
+    def build_df(self,start, end, skip_n, limit_n,loader=0):
         collection = self.get_collection()        
         cursor = self.get_cursor(collection, start,end, skip_n, limit_n)    
         self.df = pd.DataFrame(list(cursor))        
         self.first_preprocessing(skip_n=skip_n,loader=loader)
+        cursor.close()        
+        del cursor
     
     
     def build_df_iter(self,collection, start, end, skip_n, limit_n,loader=0):
@@ -64,8 +66,26 @@ class DatabaseToCSV: #Paralleling Process
             collection = db.server_bogota
         elif self.collection_name == 'timeline_user':
             collection = db.server_follow_timeline_user
-        elif self.collection_name == 'stream_keywords':
-            collection = db.server_token_keywords
+        elif self.collection_name == 'stream_keywords_octubre':
+            collection = db.server_token_keywords_octubre
+        elif self.collection_name == 'stream_keywords_noviembre':
+            collection = db.server_token_keywords_noviembre
+        elif self.collection_name == 'stream_keywords_diciembre':
+            collection = db.server_token_keywords_diciembre
+        elif self.collection_name == 'stream_keywords_enero':
+            collection = db.server_token_keywords_enero
+        elif self.collection_name == 'stream_keywords_febrero':
+            collection = db.server_token_keywords_febrero
+        elif self.collection_name == 'stream_keywords_marzo':
+            collection = db.server_token_keywords_marzo
+        elif self.collection_name == 'stream_keywords_abril':
+            collection = db.server_token_keywords_abril
+        elif self.collection_name == 'stream_keywords_mayo':
+            collection = db.server_token_keywords_mayo
+        elif self.collection_name == 'stream_keywords_junio':
+            collection = db.server_token_keywords_junio
+        elif self.collection_name == 'stream_keywords_julio':
+            collection = db.server_token_keywords_julio
         else:
             collection = None
         return collection

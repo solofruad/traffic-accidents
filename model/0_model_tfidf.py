@@ -11,48 +11,62 @@
 
 
 import pandas as pd  # For data handling
-import numpy as np
+#import numpy as np
 
 from classes.tfidf.preprocessing import Preprocessing as tfidf
+from classes.tfidf.preprocessing_lemma import Preprocessing as tfidf_lemma
 
 """-------------------------------DATASETS-----------------------------------------------"""
 
-#positive = pd.read_csv("data/positive/positive_100.tsv", delimiter = "\t", quoting = 3)
-#negative = pd.read_csv("data/negative/negative_100.tsv", delimiter = "\t", quoting = 3)
-
-#positive['label'] = 1
-#negative['label'] = 0
-
-#positive = positive.sample(n=20)
-#negative = negative.sample(n=20)
-
-#dataset = pd.concat([positive,negative])
-#dataset = dataset.sample(frac=1)
-
-#dataset.to_csv("data/v1/dataset_100.tsv",sep='\t', index=False)
-
-dataset = pd.read_csv("data/v1/dataset_7030.tsv", delimiter = "\t", quoting = 3)
+train = pd.read_csv("data/v1/7030/train70.tsv", delimiter = "\t", quoting = 3)
+train['dataset'] = "train"
+test = pd.read_csv("data/v1/7030/test30.tsv", delimiter = "\t", quoting = 3)
+test['dataset'] = "test"
+#dataset = pd.concat([train,test])
 """-------------------------------PREPROCESSING-----------------------------------------------"""
 
-clean = tfidf(dataset)
-clean.fit_clean()
+#clean = tfidf(train)
+#clean.fit_clean()
+clean = tfidf_lemma(train)
+train = clean.fit_clean()
 #embendding = clean.feature_extraction(ngram_range=(1,2), max_df=0.45, min_df=0.001, max_features=None)
-embendding = clean.feature_extraction(ngram_range=(1,1), max_df=0.3, min_df=0.001, max_features=1000)
+embendding, vectorizer = clean.feature_extraction(ngram_range=(1,2), max_df=0.5, min_df=0.001, max_features=None)
 
-print(clean.getWordFeatures)
+#print(train_clean.getWordFeatures)
 
 """-------------------------------TRAIN & TEST-----------------------------------------------"""
+vecs_train = embendding[embendding[:,0] == 'train',:]
+vecs_test = embendding[embendding[:,0] == 'test',:]
 
-X = embendding[:,2:]
-y = embendding[:,1]
+X_train = vecs_train[:,2:]
+X_train=X_train.astype('float')
+
+y_train = vecs_train[:,1]
+y_train=y_train.astype('int')
+
+#X_test = vecs_test[:,2:]
+#X_test=X_test.astype('float')
+#y_test = vecs_test[:,1]
+#y_test=y_test.astype('int')
+
+
+clean = tfidf_lemma(test)
+test = clean.fit_clean()
+#clean = tfidf(test)
+#clean.fit_clean()
+#doc = test.iloc[1][3]
+X_test, y_test = vectorizer.transform(test.clean).toarray(), test.label
+
+#X = embendding[:,1:]
+#y = embendding[:,0]
 # Splitting the dataset into the Training set and Test set
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 123)
+#from sklearn.model_selection import train_test_split
+#X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 123)
 
 """----------------------------------MODEL---------------------------------------------------"""
 
 """----------------------------------NAIVE BAYES---------------------------------------------------"""
-"""
+
 # Fitting Naive Bayes to the Training set
 from sklearn.naive_bayes import GaussianNB
 
@@ -60,6 +74,7 @@ classifier = GaussianNB()
 classifier.fit(X_train, y_train)
 
 # Predicting the Test set results
+
 y_pred = classifier.predict(X_test)
 
 # Making the Confusion Matrix
@@ -79,15 +94,15 @@ metrics['precision'] = precision_score(y_test, y_pred)
 metrics['f1'] = f1_score(y_test, y_pred)
 metrics_nb.append(metrics)
 metrics_nb = pd.DataFrame(metrics_nb)
-"""
+
 """----------------------------------LINEAR SVM---------------------------------------------------"""
 
-from sklearn.svm import LinearSVC
+#from sklearn.svm import LinearSVC
 #classifier = LinearSVC(random_state=123, tol=1e-4)
 #classifier = LinearSVC(random_state=123, tol=1)
 
 from sklearn.svm import SVC
-classifier = SVC(random_state=123, kernel='rbf', gamma=0.9, C=2)
+classifier = SVC(random_state=123, kernel='rbf', gamma=0.7, C=5)
 
 classifier.fit(X_train, y_train)
 
@@ -113,7 +128,11 @@ metrics_svm.append(metrics)
 metrics_svm = pd.DataFrame(metrics_svm)
 
 """----------------------------------Graficando---------------------------------------------------"""
-"""
+
+import numpy as np
+X = np.concatenate((X_train, X_test), axis=0)
+y = np.concatenate((y_train, y_test), axis=0)
+
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
@@ -142,4 +161,3 @@ color = [label1[int(i)] for i in y]
 plt.scatter(datapoint[:, 0], datapoint[:, 1], alpha=0.7, c=color)
 
 plt.show()
-"""

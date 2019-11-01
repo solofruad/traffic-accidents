@@ -1,68 +1,68 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sun Sep  8 19:42:20 2019
+Created on Fri Oct 25 17:48:28 2019
 
 @author: hat
 """
-from pymongo import MongoClient
-from datetime import datetime
-import pandas as pd
-from datetime import timedelta
-import multiprocessing
 
-def process_cursor(skip_n,limit_n):
-    client = MongoClient('localhost', 27017) # Conecting database
-    db = client.dataset # Created instance of database
-    collection = db.server_token_user
+class Nodo:
     
-    start = datetime(2018, 10, 1, 5, 0, 0)
-    end = datetime(2019, 10, 1, 19, 0, 0)
+    def __init__(self, clave):
+        self.id = clave
+        self.conectadoA = {} #Hace seguimiento a los nodos que está conectado y su ponderacipon
     
-    
-    cursor = collection.find({ 'created_at': {'$gte': start, '$lt': end}  }, no_cursor_timeout=True).skip(skip_n).limit(limit_n)    
-    df = pd.DataFrame(list(cursor))
-    
-    #df = pd.DataFrame()
-    """count = 0
-    for doc in cursor:
-        count += 1 
-        df = df.append(pd.Series(doc),ignore_index=True)
-        if count % 10000 == 0:
-            print(count)
-        #print(doc)
-        """
-
-n_cores = 4
-collection_size = 100618
-batch_size = round(collection_size/n_cores+0.5)
-skips = range(0, n_cores*batch_size, batch_size)
-
-for skip_n in skips:
-    print(skip_n)
-processes = [ multiprocessing.Process(target=process_cursor, args=(skip_n,batch_size)) for skip_n in skips]
-
-for process in processes:
-    process.start()
-
-for process in processes:
-    process.join()
-    
-    
-for i in range(3,10,4):
-    print(i)
-
-n = 4027313
-lista = [0] * n
-n_cores = 4
-batch_size = round(n/n_cores+0.5)
-cores = range(n_cores)
-for c in cores:
-    init = batch_size * c
-    end = init + (batch_size)
-    end = end if end <= n else n
-    print("init: %s, end: %s" %(init,end))    
-    for i in range(init,end):
-        lista[i] = 1
+    #Se utiliza para agregar una conexión desde un nodo a otro
+    def agregarVecino(self, vecino, ponderacion=0):
+        self.conectadoA[vecino] = ponderacion
         
-zeros = [i for i in lista if i==0]
+    #Devuelve todos los nodos de la lista de adyacencia, representados por la variable conectadoA
+    def obtenerConexiones(self):
+        return self.conectadoA.keys()
+    
+    #Devuelve la ponderación de las aristas del nodo actual al nodo pasado como parametro
+    def obtenerPonderacion(self, vecino):
+        return self.conectadoA[vecino]
+    
+    def obtenerId(self):
+        return self.id
+
+    def __str__(self):
+        return str(self.id) + ' conectadoA: '+ str([x.id for x in self.conectadoA])
+    
+    
+class Grafo:
+    
+    def __init__(self):
+        self.listaNodos = {}
+        self.numNodos = 0
+    
+    def agregarNodo(self,clave):
+        self.numNodos = self.numNodos + 1
+        nuevoNodo = Nodo(clave)
+        self.listaNodos[clave] = nuevoNodo
+        return nuevoNodo
+    
+    def obtenerNodo(self,n):
+        if n in self.listaNodos:
+            return self.listaNodos[n]
+        else:
+            return None
+        
+    def __contains__(self,n):
+        return n in self.listaNodos
+        
+    def agregarArista(self,de,a,costo=0):
+        if de not in self.listaNodos:
+            nv = self.agregarNodo(de)
+        if a not in self.listaNodos:
+            nv = self.agregarNodo(a)
+        self.listaNodos[de].agregarVecino(self.listaNodos[a], costo)
+    
+    
+
+        
+    
+    
+    
+    

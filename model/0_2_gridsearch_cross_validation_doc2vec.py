@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Created on Mon Oct  7 22:42:27 2019
+
+@author: hat
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import pandas as pd  # For data handling
 
@@ -7,18 +15,6 @@ import pandas as pd  # For data handling
 from classes.doc2vec.preprocessing import Preprocessing as doc2vec
 
 """-------------------------------DATASETS-----------------------------------------------"""
-
-"""positive = pd.read_csv("data/positive/positive_7030.tsv", delimiter = "\t", quoting = 3)
-negative = pd.read_csv("data/negative/negative_7030.tsv", delimiter = "\t", quoting = 3)
-
-positive['label'] = 1
-negative['label'] = 0
-
-#positive = positive.sample(n=20)
-#negative = negative.sample(n=20)
-
-dataset = pd.concat([positive,negative])
-dataset = dataset.sample(frac=1)"""
 
 train = pd.read_csv("data/v1/7030/train70.tsv", delimiter = "\t", quoting = 3)
 train['dataset'] = 99 # train = 1
@@ -42,14 +38,84 @@ y_train = vecs_train[:,1]
 X_test = vecs_test[:,2:]
 y_test = vecs_test[:,1]
 
+"""----------------------------------GRID SEARCH---------------------------------------------------"""
+from sklearn.model_selection import GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.svm import SVC
+from sklearn.metrics import classification_report
+from pprint import pprint
+from time import time
 
-#X = embendding[:,2:]
-#y = embendding[:,1]
-# Splitting the dataset into the Training set and Test set
-#from sklearn.model_selection import train_test_split
-#X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 0)
+import logging  # Setting up the loggings to monitor gensim
 
-"""----------------------------------MODEL---------------------------------------------------"""
+logger = logging.getLogger("gridsearch")
+hdlr = logging.FileHandler("log/gridsearch_doc2vec.log")
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+hdlr.setFormatter(formatter)
+logger.addHandler(hdlr)
+logger.setLevel(logging.INFO)
+
+try:
+    logger.info("#####Comenzando a entrenar modelo######")    
+    logger.info(__doc__)
+    pipeline = Pipeline([      
+      ('clf', SVC(random_state=123) )
+    ])
+    parameters = {          
+            'clf__kernel': ('linear', 'poly', 'rbf'),              
+            'clf__C': (0.1, 1, 2, 2.5, 4, 5, 7, 10, 15, 20),
+            'clf__gamma': (0.1, 0.7, 1, 2, 3, 5, 8, 10)            
+    }
+    scores = ['accuracy', 'f1']
+    for score in scores:
+        logger.info("# Tuning hyper-parameters for %s" % score)
+        logger.info(" ")
+    
+        logger.info("Performing grid search...")
+        print("pipeline:", [name for name, _ in pipeline.steps])
+        logger.info("parameters:")
+        pprint(parameters)
+        t0 = time()
+        grid_search = GridSearchCV(pipeline, parameters, cv=5, scoring=score, n_jobs=-1,verbose=1)
+        grid_search.fit(X_train, y_train)
+        logger.info("done in %0.3fs" % (time() - t0))
+        logger.info(" ")
+        
+        logger.info("Best parameters set found on development set:")
+        logger.info(" ")
+        logger.info(grid_search.best_params_)
+        logger.info(" ")
+        ##Old start
+        logger.info("--")
+        logger.info("Best score: %0.3f" % grid_search.best_score_)    
+        logger.info("Best parameters set:")
+        best_parameters = grid_search.best_estimator_.get_params()    
+        for param_name in sorted(parameters.keys()):
+            logger.info("\t%s: %r" % (param_name, best_parameters[param_name]))
+        logger.info("--")
+        logger.info(" ")
+        
+        logger.info("Grid scores on development set:")
+        logger.info(" ")
+        means = grid_search.cv_results_['mean_test_score']
+        stds = grid_search.cv_results_['std_test_score']
+        for mean, std, params in sorted(zip(means, stds, grid_search.cv_results_['params']),key = lambda t: t[0],reverse=True):
+            logger.info("%0.3f (+/-%0.03f) for %r" % (mean, std * 2, params))
+        logger.info(" ")
+    
+        logger.info("Detailed classification report:")
+        logger.info(" ")
+        logger.info("The model is trained on the full development set.")
+        logger.info("The scores are computed on the full evaluation set.")
+        logger.info(" ")
+        y_true, y_pred = y_test, grid_search.predict(X_test)
+        logger.info(classification_report(y_true, y_pred))
+        logger.info(" ")
+        
+except Exception as e:
+    logger.error('Unhandled exception:')
+    logger.error(e)
+
 
 """----------------------------------NAIVE BAYES---------------------------------------------------"""
 
@@ -86,7 +152,7 @@ metrics_nb = pd.DataFrame(metrics_nb)
 #classifier = LinearSVC(random_state=0, tol=1e-4)
 
 from sklearn.svm import SVC
-classifier = SVC(random_state=123, kernel='linear', gamma=0.7, C=0.1)
+classifier = SVC(random_state=123, kernel='linear', gamma=0.7, C=4)
 classifier.fit(X_train, y_train)
 
 # Predicting the Test set results
@@ -111,10 +177,7 @@ metrics_svm.append(metrics)
 metrics_svm = pd.DataFrame(metrics_svm)
 
 """----------------------------------Graficando---------------------------------------------------"""
-
-X = embendding[:,2:]
-y = embendding[:,1]
-
+"""
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
@@ -143,3 +206,4 @@ color = [label1[int(i)] for i in y]
 plt.scatter(datapoint[:, 0], datapoint[:, 1], alpha=0.7, c=color)
 
 plt.show()
+"""

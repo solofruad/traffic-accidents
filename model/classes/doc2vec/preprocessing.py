@@ -37,22 +37,25 @@ class Preprocessing:
         self.dataset = self.dataset.reset_index(drop=True) # if limited the amount tweets drop index so that it does not interfere later in te for_each         
 
     def feature_extraction(self,size_dbow,size_dmm,size_vec):
-        phraser_tg = Phraser.load("models/phraser_trigram-all-data.model")
-        dmm = Doc2Vec.load("models/dmm/5-d2v-dmm-trig-f200-w5.model")
-        dbow = Doc2Vec.load("models/dbow/5-d2v-dbow-unigram-f200-w5.model")
+        phraser_tg = Phraser.load("models_v1/phraser_trigram-all-data.model")
+        dmm = Doc2Vec.load("models_v1/dmm/5-d2v-dmm-trig-f200-w5.model")
+        dbow = Doc2Vec.load("models_v1/dbow/5-d2v-dbow-unigram-f200-w5.model")
         
-        vecs_id_tweet = np.zeros((len(self.dataset.clean.values),1))
+        #vecs_id_tweet = np.zeros((len(self.dataset.clean.values),1))
+        vecs_dataset = np.zeros((len(self.dataset.clean.values),1))        
         vecs_label = np.zeros((len(self.dataset.clean.values),1))
         vecs_dbow = np.zeros((len(self.dataset.clean.values), size_dbow))
         vecs_dmm = np.zeros((len(self.dataset.clean.values), size_dmm))
-        vecs = np.zeros((len(self.dataset.clean.values), size_vec))
-        
-        for index, row in self.dataset.iterrows():    
+        vecs = np.zeros((len(self.dataset.clean.values), size_vec))        
+        count = 0
+        for index, row in self.dataset.iterrows():                
             vecs_label[index] = row['label']
-            vecs_id_tweet[index] = row['id_tweet']
+            #vecs_id_tweet[index] = row['id_tweet']
+            vecs_dataset[index] = row['dataset']
             vecs_dbow[index] = dbow.infer_vector(row['clean'].split())        
             vecs_dmm[index] = dmm.infer_vector(phraser_tg[row['clean'].split()])
-            vecs[index] = np.concatenate((vecs_id_tweet[index],vecs_label[index],vecs_dbow[index],vecs_dmm[index]))            
+            #vecs[index] = np.concatenate((vecs_id_tweet[index],vecs_label[index],vecs_dbow[index],vecs_dmm[index]))            
+            vecs[index] = np.concatenate((vecs_dataset[index],vecs_label[index],vecs_dbow[index],vecs_dmm[index]))            
             
         return vecs
     

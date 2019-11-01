@@ -7,7 +7,7 @@ Created on Thu Aug 15 11:26:25 2019
 """
 
 import pandas as pd  # For data handling
-from classes.tfidf.preprocessing import Preprocessing as tfidf
+#from classes.tfidf.preprocessing import Preprocessing as tfidf
 from sklearn.model_selection import train_test_split
 
 names = ['7030','5050','100']
@@ -16,10 +16,10 @@ for name in names:
     filename = "data/v1/dataset_"+name+".tsv"
     dataset = pd.read_csv(filename, delimiter = "\t", quoting = 3)
     
-    clean = tfidf(dataset)
-    clean.fit_clean()
+    #clean = tfidf(dataset)
+    #clean.fit_clean()
     
-    X, y = dataset.clean, dataset.label
+    X, y = dataset.text, dataset.label
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.30, random_state = 123)
 
     train = pd.concat([X_train,y_train],axis=1)

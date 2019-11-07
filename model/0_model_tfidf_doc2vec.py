@@ -1,18 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Oct  7 22:42:27 2019
+Created on Thu Nov  7 11:39:24 2019
 
 @author: hat
 """
 
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+"""
+
+1_clean_stem_stopwords_dataset_propuesta1_5050 -> SVM (kernel='rbf', gamma=0.1, C=5)
+
+2_clean_lemma_stopwords_dataset_propuesta1_5050 -> SVM (kernel='rbf', gamma=0.3, C=7)
+
+5_clean_stem_dataset_propuesta1_5050 -> SVM (kernel='poly', gamma=0.3, C=4)
+
+6_clean_lemma_dataset_propuesta1_5050 -> SVM (kernel='rbf', gamma=0.2, C=7)
+
+
+"""
 
 import pandas as pd  # For data handling
+import numpy as np
 
+from classes.preprocessing_test import Preprocessing
 
-from classes.doc2vec.preprocessing import Preprocessing as doc2vec
 
 """-------------------------------DATASETS-----------------------------------------------"""
 
@@ -25,23 +36,55 @@ dataset = dataset.reset_index(drop=True)
 
 """-------------------------------PREPROCESSING-----------------------------------------------"""
 
-clean = doc2vec(dataset)
+clean = Preprocessing(dataset)
 
 directory = "data/v1/doc2vec/"
-file = "4_clean_special_chars_dataset_propuesta1_5050"
-clean.fit_clean(4)
+file = "6_clean_lemma_dataset_propuesta1_5050"
+clean.fit_clean(6)
 
 #embendding = clean.feature_extraction(200,200,402, directory, file)
-embendding = clean.feature_extraction(200,200,202, directory, file)
+embendding_dv = clean.feature_extraction_doc2vec(200,200,202, directory, file)
+
+clean_tf = Preprocessing(train)
+train = clean_tf.fit_clean(6)
+embendding_tf, vectorizer_tf = clean_tf.feature_extraction_tfidf(ngram_range=(1,2), max_df=0.5, min_df=0.001, max_features=None)
+
+
 
 """-------------------------------TRAIN & TEST-----------------------------------------------"""
-vecs_train = embendding[embendding[:,0] == 99.0,:]
-vecs_test = embendding[embendding[:,0] == 100.0,:]
+vecs_train_dv = embendding_dv[embendding_dv[:,0] == 99.0,:]
+vecs_test_dv = embendding_dv[embendding_dv[:,0] == 100.0,:]
 
-X_train = vecs_train[:,2:]
-y_train = vecs_train[:,1]
-X_test = vecs_test[:,2:]
-y_test = vecs_test[:,1]
+X_train_dv = vecs_train_dv[:,2:]
+y_train_dv = vecs_train_dv[:,1]
+X_test_dv = vecs_test_dv[:,2:]
+y_test_dv = vecs_test_dv[:,1]
+
+
+
+vecs_train_tf = embendding_tf[embendding_tf[:,0] == 99,:]
+vecs_test_tf = embendding_tf[embendding_tf[:,0] == 100,:]
+
+X_train_tf = vecs_train_tf[:,2:]
+X_train_tf=X_train_tf.astype('float')
+
+y_train_tf = vecs_train_tf[:,1]
+y_train_tf=y_train_tf.astype('int')
+
+clean_tf = Preprocessing(test)
+#####################################################################################################
+test_tf = clean_tf.fit_clean(6) ##<----------------------------------------------##################"""
+#####################################################################################################
+
+test.dropna(subset=["clean"], inplace=True)
+
+X_test_tf, y_test_tf = vectorizer_tf.transform(test.clean).toarray(), test.label
+
+X_train = np.concatenate((X_train_dv, X_train_tf), axis=1)
+X_test = np.concatenate((X_test_dv, X_test_tf), axis=1)
+
+y_train = y_train_tf
+y_test = y_test_tf
 
 """----------------------------------GRID SEARCH---------------------------------------------------"""
 from sklearn.model_selection import GridSearchCV
@@ -164,7 +207,7 @@ metrics_nb = pd.DataFrame(metrics_nb)
 #classifier = LinearSVC(random_state=0, tol=1e-4)
 
 from sklearn.svm import SVC
-classifier = SVC(random_state=123, kernel='rbf', gamma=0.01, C=5)
+classifier = SVC(random_state=123, kernel='rbf', gamma=0.3, C=4)
 classifier.fit(X_train, y_train)
 
 # Predicting the Test set results
@@ -219,3 +262,4 @@ plt.scatter(datapoint[:, 0], datapoint[:, 1], alpha=0.7, c=color)
 
 plt.show()
 """
+

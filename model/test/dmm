@@ -90,6 +90,21 @@ SVM (kernel='rbf', gamma=0.05, C=5)
 #################################################
 
 4_clean_special_chars_dataset_propuesta1_5050
-SVM (kernel='rbf', gamma=0.05, C=4)
+SVM (kernel='rbf', gamma=0.01, C=4)
+
+   accuracy    recall  precision        f1
+0  0.858144  0.848754   0.861011  0.854839
+
+503	77
+85	477
+
+
+SVM (kernel='rbf', gamma=0.01, C=3)
+
+   accuracy    recall  precision        f1
+0  0.856392  0.843416   0.861818  0.852518
+
+504	76
+88	474
 
 

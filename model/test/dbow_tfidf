@@ -1,0 +1,68 @@
+1_clean_stem_stopwords_dataset_propuesta1_5050
+
+SVM (kernel='rbf', gamma=0.2, C=3)
+
+   accuracy    recall  precision       f1
+0  0.963028  0.951957   0.972727  0.96223
+
+559	15
+27	535
+
+SVM (kernel='rbf', gamma=0.2, C=5)
+
+   accuracy    recall  precision        f1
+0  0.963028  0.955516   0.969314  0.962366
+
+557	17
+25	537
+
+SVM (kernel='rbf', gamma=0.2, C=4)
+
+   accuracy    recall  precision        f1
+0  0.963908  0.957295   0.969369  0.963295
+
+557	17
+24	538
+
+"""
+""" Falta GridSearch
+"""
+"""
+
+##########################################################
+
+2_clean_lemma_stopwords_dataset_propuesta1_5050
+
+SVM (kernel='rbf', gamma=0.3, C=7)
+   accuracy    recall  precision        f1
+0  0.965669  0.946619   0.983364  0.964642
+
+565	9
+30	532
+
+##########################################################
+
+5_clean_stem_dataset_propuesta1_5050
+
+SVM (kernel='poly', gamma=0.3, C=4)
+
+   accuracy    recall  precision        f1
+0  0.942207  0.905694   0.975096  0.939114
+
+567	13
+53	509
+
+##########################################################
+
+6_clean_lemma_dataset_propuesta1_5050
+
+
+SVM (kernel='rbf', gamma=0.2, C=7)
+   accuracy   recall  precision        f1
+0  0.950088  0.91637   0.980952  0.947562
+
+570	10
+47	515
+
+
+

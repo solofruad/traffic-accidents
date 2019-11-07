@@ -26,8 +26,13 @@ dataset = dataset.reset_index(drop=True)
 """-------------------------------PREPROCESSING-----------------------------------------------"""
 
 clean = doc2vec(dataset)
-clean.fit_clean()
-embendding = clean.feature_extraction(200,200,402)
+
+directory = "data/v1/doc2vec/"
+file = "4_clean_special_chars_dataset_propuesta1_5050"
+clean.fit_clean(4)
+
+#embendding = clean.feature_extraction(200,200,402, directory, file)
+embendding = clean.feature_extraction(200,200,202, directory, file)
 
 """-------------------------------TRAIN & TEST-----------------------------------------------"""
 vecs_train = embendding[embendding[:,0] == 99.0,:]
@@ -63,10 +68,17 @@ try:
     ])
     parameters = {          
             'clf__kernel': ('linear', 'poly', 'rbf'),              
-            'clf__C': (0.1, 1, 2, 2.5, 4, 5, 7, 10, 15, 20),
-            'clf__gamma': (0.1, 0.7, 1, 2, 3, 5, 8, 10)            
+            'clf__C': (0.01, 0.05, 0.1, 1, 2, 3, 4, 5, 6, 7, 8),
+            'clf__gamma': (0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.7, 1, 2, 3,10)            
     }
-    scores = ['accuracy', 'f1']
+    """
+    parameters = {          
+            'clf__kernel': ('poly', 'rbf'),              
+            'clf__C': (5, 6),
+            'clf__gamma': (0.1, 0.2, 0.3, 0.4)            
+    }
+    """
+    scores = ['accuracy', 'f1']    
     for score in scores:
         logger.info("# Tuning hyper-parameters for %s" % score)
         logger.info(" ")
@@ -152,7 +164,7 @@ metrics_nb = pd.DataFrame(metrics_nb)
 #classifier = LinearSVC(random_state=0, tol=1e-4)
 
 from sklearn.svm import SVC
-classifier = SVC(random_state=123, kernel='linear', gamma=0.7, C=4)
+classifier = SVC(random_state=123, kernel='rbf', gamma=0.05, C=5)
 classifier.fit(X_train, y_train)
 
 # Predicting the Test set results

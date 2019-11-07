@@ -10,12 +10,12 @@ Created on Thu Feb 28 09:30:35 2019
    DOC2VEC distribuides memory DDM
 """
 
-import re  # For preprocessing
+#import re  # For preprocessing
 import pandas as pd  # For data handling
 from time import time  # To time our operations
-from collections import defaultdict  # For word frequency
+#from collections import defaultdict  # For word frequency
 
-import spacy  # For preprocessing
+#import spacy  # For preprocessing
 #!pip3 install -U spacy
 #!python3 -m spacy download es_core_news_md
 
@@ -25,30 +25,44 @@ import logging  # Setting up the loggings to monitor gensim
 
 
 logger = logging.getLogger("doc2vec")
-hdlr = logging.FileHandler("log/logs.log")
+hdlr = logging.FileHandler("log/logs_trigram.log")
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 hdlr.setFormatter(formatter)
 logger.addHandler(hdlr)
 logger.setLevel(logging.INFO)
 
 try:
-    logger.info("#####Comenzando a entrenar modelo######")    
-    logger.info("Leyendo archivo")    
-    dataset = pd.read_csv("5-corpus-union-unique-clean.tsv",delimiter= "\t", quoting = 3)        
-    logger.info("dataset cargado")    
-
-    #Bigrams:
-    from gensim.models.phrases import Phrases, Phraser
-
-    unigram = [row.split() for row in dataset['text']]
-    bigram = Phrases(unigram, min_count=5, progress_per=10000)
-    trigram = Phrases(bigram[unigram], min_count=5, progress_per=10000)
+    files = [
+     "1_clean_stem_stopwords_dataset_propuesta2_complete", 
+     "2_clean_lemma_stopwords_dataset_propuesta1_5050", "2_clean_lemma_stopwords_dataset_propuesta2_complete",
+     "3_clean_stopwords_dataset_propuesta1_5050", "3_clean_stopwords_dataset_propuesta2_complete",
+    ]
+    __dir = "data/v1/doc2vec/clean/"
+    for __file in files:        
+        logger.info("#####Comenzando a entrenar modelo DMM######")    
+        logger.info("Leyendo archivo")            
+        #__file = "1_clean_stem_stopwords_dataset_propuesta1_5050"
+        
+        dataset = pd.read_csv(__dir + __file + ".tsv", delimiter= "\t", quoting = 3)
+        del dataset["Unnamed: 0"]
+        logger.info("dataset cargado")    
     
-    sentences = trigram[bigram[unigram]]
+        #Bigrams:
+        from gensim.models.phrases import Phrases
+        logger.info("Begining "+__file)
+        unigram = [row.split() for row in dataset['text']]
+        bigram = Phrases(unigram, min_count=5, progress_per=10000)
+        trigram = Phrases(bigram[unigram], min_count=5, progress_per=10000)
+        
+        trigram.save("data/v1/doc2vec/model_dmm/trigram/trigram_"+__file+".model")
+        logger.info("Finish")
+        logger.info("##########################################")
+    #sentences = trigram[bigram[unigram]]
 
+    
     #Gensim Doc2Vec Implementation
 
-    import multiprocessing
+    """import multiprocessing
     from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 
     cores = multiprocessing.cpu_count() # Count the number of cores in a computer
@@ -56,7 +70,7 @@ try:
     logger.info("Creando documentos para doc2vec")
     tagged_data = [TaggedDocument(words=_d, tags=[str(i)]) for i, _d in enumerate(sentences)]
 
-    max_epochs = 100
+    max_epochs = 12
     vec_size = 200
     alpha = 0.025
     min_alpha = 0.0001
@@ -67,10 +81,10 @@ try:
                     window=5,
                     alpha=alpha, 
                     min_alpha=min_alpha,
-                    min_count=5,
+                    min_count=4,
                     dm=1, #dm = 1 is "distribuides memory (no-order words)), if dm = 0 is "DBOW" (order words))
                     dm_mean=1,
-                    epochs=40,
+                    epochs=15,
                     workers=cores,
                     seed=123) 
       
@@ -94,9 +108,12 @@ try:
 
     logger.info('Time to train model doc2vec: {} mins'.format(round((time() - t) / 60, 2)))
 
-    model.save("5-d2v-dmm-trig-f200-w5.model")    
-    logger.info("Model Saved file: 5-d2v-dmm-trig-f200-w5.model")
-
+    __dir_save = "data/v1/doc2vec/model_dmm/"
+    model.save(__dir_save+__file+".model")    
+    logger.info("Model Saved file: "+__file+".model")    
+    logger.info("###Finalizando entrenamiento de modelo DMM###")
+    logger.info(" ")
+    """
 except Exception as e:
     logger.error('Unhandled exception:')
     logger.error(e)

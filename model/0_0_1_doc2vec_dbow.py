@@ -26,7 +26,7 @@ try:
     logger.info("#####Comenzando a entrenar modelo DBOW######")      
     logger.info("Leyendo archivo")
     __dir = "data/v1/doc2vec/clean/"
-    __file = "1_clean_stem_stopwords_dataset_propuesta1_5050"
+    __file = "6_clean_lemma_dataset_propuesta2_complete"
     dataset = pd.read_csv(__dir + __file + ".tsv", delimiter= "\t", quoting = 3)
     del dataset["Unnamed: 0"]
     logger.info("dataset cargado")    
@@ -42,7 +42,7 @@ try:
     tagged_data = [TaggedDocument(words=_d, tags=[str(i)]) for i, _d in enumerate(unigram)]
 
     #max_epochs = 100 ~ 40
-    max_epochs = 40
+    max_epochs = 12
     vec_size = 200
     alpha = 0.025
     min_alpha = 0.0001
@@ -51,14 +51,14 @@ try:
     logger.info("Creando objeto del modelo doc2vec")
     model = Doc2Vec(vector_size=vec_size,
                     window=5,
-                    alpha=alpha, 
+                    alpha=alpha,
                     min_alpha=min_alpha,
-                    min_count=5,
+                    min_count=4,
                     dm=0, #dm = 1 is "distribuides memory (no-order words)), if dm = 0 is "DBOW" (order words))                    
                     #epochs=40 ~ 30,
-                    epochs=25,
+                    epochs=15,
                     workers=cores,
-                    seed=123) 
+                    seed=123)
       
 
     logger.info("Comenzando a contruir vocab")
@@ -83,13 +83,12 @@ try:
     __dir_save = "data/v1/doc2vec/model/"
     model.save(__dir_save+__file+".model")    
     logger.info("Model Saved file: "+__file+".model")    
-    logger.info("#####Finalizando entrenar modelo DBOW######")
+    logger.info("#####Finalizando entrenamiento de modelo DBOW######")
     logger.info(" ")
 
 except Exception as e:
     logger.error('Unhandled exception:')
     logger.error(e)
-    
 
 
 

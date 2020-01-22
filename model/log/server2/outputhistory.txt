@@ -1,0 +1,206 @@
+    1  exit
+    2  pip3 install virtualenv
+    3  apt-get install python3-pip
+    4  python
+    5  python3
+    6  sudo apt-get install python3-pip
+    7  apt-get update
+    8  apt-get install python3-pip
+    9  pip3 install virtualenv
+   10  pip3 install virtualenvwrapper
+   11  export WORKON_HOME=~/Envs
+   12  mkdir -p $WORKON_HOME
+   13  export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+   14  source /usr/local/bin/virtualenvwrapper.sh 
+   15  mkvirtualenv accident
+   16  cd transit/
+   17  ls
+   18  nano 0_0_1_doc2vec_dmm.py
+   19  pip3 install pandas
+   20  pip instal numpy
+   21  pip3 install numpy
+   22  pip3 install gensim
+   23  nano 0_0_1_doc2vec_dmm.py 
+   24  ls
+   25  nano log/logs.log
+   26  ls log/logs.log
+   27  rm logs.log
+   28  ls
+   29  nano task.sh 
+   30  python3 0_0_1_doc2vec_dmm.py
+   31  nano log/logs.log
+   32  crontab -e
+   33  date
+   34  crontab -e
+   35  date
+   36  top
+   37  crontab -e
+   38  cat /var/log/syslog | grep -i cron
+   39  nano log/logs.log
+   40  top
+   41  crontab -e
+   42  nano task.sh 
+   43  top
+   44  nano log/logs.log 
+   45  top
+   46  exit
+   47  top
+   48  nano transit/log/logs.log 
+   49  exit
+   50  top
+   51  nano transit/log/logs.log
+   52  nano transit/0_0_1_doc2vec_dmm.py 
+   53  exit
+   54  top
+   55  cd transit/
+   56  ls
+   57  nano log/logs.log 
+   58  exit
+   59  cd transit/
+   60  ls
+   61  nano 0_0_1_doc2vec_dbow.py 
+   62  cd data/v1/doc2vec/
+   63  ls
+   64  mkdir model
+   65  cd ..
+   66  ls
+   67  nano 0_0_1_doc2vec_dbow.py 
+   68  nano task.sh 
+   69  date
+   70  crontab -e
+   71  date
+   72  crontab -e
+   73  date
+   74  top
+   75  nano log/logs.log
+   76  exi
+   77  exit
+   78  top
+   79  nano transit/
+   80  cd transit/
+   81  ls
+   82  nano log/logs.log
+   83  top
+   84  nano log/logs.log 
+   85  exit
+   86  top
+   87  nano transit/log/logs.log 
+   88  exit
+   89  top
+   90  nano transit/log/logs.log
+   91  nano transit/0_0_1_doc2vec_dbow.py 
+   92  nano transit/log/logs.log
+   93  ls
+   94  cd transit/
+   95  ls
+   96  nano 0_0_1_doc2vec_dbow.py 
+   97  nano task.sh 
+   98  ls
+   99  date
+  100  crontab -e
+  101  top
+  102  nano log/logs.log
+  103  top
+  104  exit
+  105  top
+  106  nano transit/log/logs.log 
+  107  exit
+  108  top
+  109  cd transit/
+  110  ls
+  111  nano log/logs.log 
+  112  ls -l data/v1/doc2vec/model
+  113  nano 0_0_1_doc2vec_dbow.py 
+  114  crontab -e
+  115  nano task.sh 
+  116  date
+  117  crontab -e
+  118  date
+  119  top
+  120  nano log/logs.log 
+  121  exit
+  122  top
+  123  nano transit/log/logs.log
+  124  exit
+  125  top
+  126  nano transit/log/logs.log 
+  127  exit
+  128  top
+  129  cd transit/
+  130  ls
+  131  nano 0_0_1_doc2vec_dbow.py
+  132  nano task.sh 
+  133  nano 0_0_1_doc2vec_dmm.py 
+  134  nano task.sh 
+  135  date
+  136  crontab -e
+  137  date
+  138  top
+  139  exit
+  140  top
+  141  nano transit/log/logs.log
+  142  exit
+  143  top
+  144  cd transit/
+  145  nano log/logs.log 
+  146  ls -l data/v1/doc2vec/model_dmm/
+  147  ls -l data/v1/doc2vec/model/
+  148  nano 0_0_1_doc2vec_dmm.py 
+  149  date
+  150  crontab -e
+  151  top
+  152  conrtab -e
+  153  crontab -e
+  154  top
+  155  crontab -e
+  156  date
+  157  top
+  158  nano log/logs.log 
+  159  exit
+  160  ls
+  161  top
+  162  nano transit/log/logs.log 
+  163  exit
+  164  top
+  165  cd transit/
+  166  ls
+  167  ls -l data/v1/doc2vec/
+  168  ls -l data/v1/doc2vec/model_dmm/
+  169  ls -l data/v1/doc2vec/model
+  170  nano 0_0_1_doc2vec_dbow.py 
+  171  nano task.sh
+  172  date
+  173  crontab -e
+  174  top
+  175  crontab -e
+  176  top
+  177  nano log/logs.log 
+  178  exit
+  179  cd transit/
+  180  ls
+  181  taskset 
+  182  task.sh
+  183  nano task.sh
+  184  nano 0_0_1_doc2vec_dbow.py 
+  185  exit
+  186  cd transit/
+  187  ls
+  188  nano 0_0_1_doc2vec_dbow.py 
+  189  date
+  190  crontab -e
+  191  top
+  192  crontab -e
+  193  top
+  194  nano log/logs.log 
+  195  exit
+  196  top
+  197  cd tra
+  198  cd transit/
+  199  ls
+  200  nano task.sh 
+  201  nano 0_0_1_doc2vec_dbow.py 
+  202  crontab -e
+  203  ls
+  204  cd transit/
+  205  ls
+  206  history > outputhistory.txt

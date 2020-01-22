@@ -28,8 +28,8 @@ dataset = dataset.reset_index(drop=True)
 clean = doc2vec(dataset)
 
 directory = "data/v1/doc2vec/"
-file = "4_clean_special_chars_dataset_propuesta1_5050"
-clean.fit_clean(4)
+file = "6_clean_lemma_dataset_propuesta1_5050"
+clean.fit_clean(6)
 
 #embendding = clean.feature_extraction(200,200,402, directory, file)
 embendding = clean.feature_extraction(200,200,202, directory, file)
@@ -164,7 +164,7 @@ metrics_nb = pd.DataFrame(metrics_nb)
 #classifier = LinearSVC(random_state=0, tol=1e-4)
 
 from sklearn.svm import SVC
-classifier = SVC(random_state=123, kernel='rbf', gamma=0.01, C=5)
+classifier = SVC(random_state=123, kernel='rbf', gamma=0.1, C=2)
 classifier.fit(X_train, y_train)
 
 # Predicting the Test set results

@@ -1,0 +1,143 @@
+1_clean_stem_stopwords_dataset_propuesta1_5050
+
+SVC(random_state=123, kernel='rbf', gamma=0.01, C=8)
+
+   accuracy    recall  precision        f1
+0  0.933979  0.932384   0.934046  0.933215
+
+537	37
+38	524
+
+###############################################
+
+1_clean_stem_stopwords_dataset_propuesta2_complete
+
+SVC(random_state=123, kernel='rbf', gamma=0.01, C=8)
+
+   accuracy    recall  precision        f1
+0  0.945423  0.941281   0.948029  0.944643
+
+545	29
+33	529
+
+
+###############################################
+
+2_clean_lemma_stopwords_dataset_propuesta1_5050
+
+SVC(random_state=123, kernel='rbf', gamma=0.05, C=2)
+
+   accuracy    recall  precision        f1
+0  0.933979  0.911032   0.953445  0.931756
+
+549	25
+50	512
+
+###############################################
+
+2_clean_lemma_stopwords_dataset_propuesta2_complete
+
+SVC(random_state=123, kernel='rbf', gamma=0.05, C=7)
+
+   accuracy    recall  precision        f1
+0  0.933979  0.907473   0.956848  0.931507
+
+551	23
+52	510
+
+##########################################################
+
+3_clean_stopwords_dataset_propuesta1_5050
+
+SVM (kernel='poly', gamma=1, C=0.01)
+
+   accuracy    recall  precision        f1
+0  0.941901  0.937722   0.944444  0.941071
+
+543	31
+35	527
+
+##########################################################
+3_clean_stopwords_dataset_propuesta2_complete
+
+SVM (kernel='rbf', gamma=0.05, C=3)
+
+   accuracy    recall  precision        f1
+0   0.93838  0.921708   0.952206  0.936709
+
+548	26
+44	518
+
+
+##########################################################
+
+4_clean_special_chars_dataset_propuesta1_5050
+
+SVM (kernel='poly', gamma=0.3, C=0.05)
+
+   accuracy    recall  precision        f1
+0  0.943958  0.937722   0.947842  0.942755
+
+551	29
+35	527
+
+##########################################################
+
+4_clean_special_chars_dataset_propuesta2_complete
+
+SVM (kernel='poly', gamma=0.3, C=0.05)
+
+   accuracy   recall  precision        f1
+0  0.938704  0.94484   0.931579  0.938163
+
+541	39
+31	531
+
+
+##########################################################
+
+5_clean_stem_dataset_propuesta1_5050
+
+SVM (kernel='rbf', gamma=0.01, C=6)
+   accuracy    recall  precision        f1
+0  0.948336  0.948399   0.946714  0.947556
+
+550	30
+29	533
+
+##########################################################
+
+5_clean_stem_dataset_propuesta2_complete
+
+SVM (kernel='rbf', gamma=0.01, C=5)
+
+   accuracy    recall  precision        f1
+0  0.940455  0.939502   0.939502  0.939502
+
+546	34
+34	528
+
+##########################################################
+
+6_clean_lemma_dataset_propuesta1_5050
+
+SVM (kernel='poly', gamma=0.05, C=6)
+
+   accuracy    recall  precision        f1
+0  0.940455  0.932384   0.945848  0.939068
+
+550	30
+38	524
+
+##########################################################
+
+6_clean_lemma_dataset_propuesta2_complete
+
+SVM (kernel='rbf', gamma=0.05, C=3)
+
+   accuracy    recall  precision       f1
+0   0.93345  0.895018   0.967308  0.92976
+
+563	17
+59	503
+

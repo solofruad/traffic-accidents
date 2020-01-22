@@ -1,0 +1,60 @@
+######################DBOW+DMM####################################
+    DBOW+DMM
+
+5_clean_stem_dataset_propuesta2_complete
+
+SVM (kernel='rbf', gamma=0.01, C=5)
+
+   accuracy    recall  precision        f1
+0  0.942207  0.937722   0.944444  0.941071
+
+549	31
+35	527
+
+   accuracy    recall  precision        f1
+0   0.93958  0.934164   0.942549  0.938338
+
+548	32
+37	525
+
+######################DMM####################################
+    DMM
+
+5_clean_stem_dataset_propuesta2_complete
+
+SVM (kernel='rbf', gamma=0.01, C=8)
+
+   accuracy    recall  precision        f1
+0  0.908056  0.877224   0.931947  0.903758
+
+544	36
+69	493
+
+
+######################DMM####################################
+    DBOW
+
+5_clean_stem_dataset_propuesta2_complete
+
+SVM (kernel='poly', gamma=3, C=0.01)
+
+   accuracy    recall  precision        f1
+0   0.95972  0.955516   0.962366  0.958929
+
+559	21
+25	537
+
+
+6_clean_lemma_dataset_propuesta1_5050
+
+
+SVM (kernel='rbf', gamma=0.1, C=2)
+
+   accuracy    recall  precision        f1
+0  0.964098  0.953737   0.972777  0.963163
+
+565	15
+26	536
+
+
+

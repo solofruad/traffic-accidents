@@ -2,7 +2,7 @@
   <div class="hero d-flex flex-column justify-content-center" full-page-hero>
     <div class="container text-center">
       <img alt="Tagenta.io logo" class="w-100" src="/images/tagenta-logo.png"/>
-      <h2 class="text-muted sm">Etiquetador de reportes de accidentes de tránsito. <a href="https://youtu.be/QBb0tNAaS_4" target="_blank" class="text-info text"><h4>Ver guía.</h4></a></h2>
+      <h2 class="text-muted sm">Etiquetador de reportes de eventos e incidentes de tránsito. <a href="https://youtu.be/QBb0tNAaS_4" target="_blank" class="text-info text"><h4>Ver guía.</h4></a></h2>
       <div>
         <div class="more-info-text text-info" @click="clickHeroButton()">
           <div class="text">Comienza</div>
@@ -47,7 +47,7 @@
     <div class="container">
       <ajax-form action="uploadTag" :syncing,sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingUploadTagForm" @submitted="submittedUploadTagForm($event)">
         <div class="about text-center">
-          <div class="question">¿El texto se refiere a un <span class="font-weight-bold text-uppercase">reporte de accidente de tránsito</span> ocurrido?</div>
+          <div class="question">¿El texto se refiere a un <span class="font-weight-bold text-uppercase">reporte de un evento de tránsito</span> ocurrido?</div>
           <div class="text-info">#accidente #choque# #incidente vial</div>
           <div class="post-wrapper text-muted bg-white rounded" ref="textPost">
             <p>{{post.text}}</p>

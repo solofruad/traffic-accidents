@@ -31,38 +31,50 @@ class Preprocessing:
         # Stemming and removes stopwords    
         #txt = [token.lemma_ for token in doc if not token.is_stop]    
         txt = [stemmer.stem(token.text) for token in doc if not token.is_stop]    
-        if len(txt) > 2:
+        if len(txt) > 4:
             return ' '.join(txt)
+        else:
+            return ''
     """ 2 """    
     def cleaning_lemma_stopwords(self, doc):
         # Lemma and removes stopwords        
         txt = [(token.lemma_ if token.text != 'calle' else token.text) for token in doc if not token.is_stop]        
-        if len(txt) > 2:
+        if len(txt) > 4:
             return ' '.join(txt)
+        else:
+            return ''
     """ 3 """
     def cleaning_stopwords(self, doc):
         # Only removing stopwords        
         txt = [token.text for token in doc if not token.is_stop]    
-        if len(txt) > 2:
+        if len(txt) > 4:
             return ' '.join(txt)
+        else:
+            return ''
     """ 4 """
     def cleaning_special_chars(self, doc):
         #All characteres, without @, urls, # and numbers.        
         txt = [token.text for token in doc]    
-        if len(txt) > 2:
+        if len(txt) > 4:
             return ' '.join(txt)
+        else:
+            return ''
     """ 5 """
     def cleaning_stem(self, doc):
         #Stem without removes stopwords
         txt = [stemmer.stem(token.text) for token in doc]    
-        if len(txt) > 2:
+        if len(txt) > 4:
             return ' '.join(txt)
+        else:
+            return ''
     """ 6 """
     def cleaning_lemma(self, doc):
         #Lemma without removes stopwords
         txt = [(token.lemma_ if token.text != 'calle' else token.text) for token in doc]    
-        if len(txt) > 2:
+        if len(txt) > 4:
             return ' '.join(txt)
+        else:
+            return ''
 
     
     def fit_clean(self, proposal):

@@ -79,6 +79,8 @@ class Preprocessing(BaseEstimator, TransformerMixin):
     """ 6 """
     def cleaning_lemma(self, doc):
         #Lemma without removes stopwords
+        #Se excluye la palabra 'calle', debido a que en español SpaCy puede mal interpretarlo como lema del
+        #verbo callar
         txt = [(token.lemma_ if token.text != 'calle' else token.text) for token in doc]    
         if len(txt) > 4:
             return ' '.join(txt)

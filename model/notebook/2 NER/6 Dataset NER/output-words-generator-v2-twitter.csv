@@ -1,0 +1,296 @@
+,original,word_segmentation,Correct,v2_twitter
+0,porlaviaxlavida,por la via x la vida,1,por la via x la vida
+1,otraperiodista,otra periodista,1,otra periodista
+2,genmasenergia,gen mas energia,1,gen mas energia
+3,eldivinonene,el divino nene,1,el divino nene
+4,transitopolicia,transito policia,1,transito policia
+5,clustergastronomia,cluster gastronomia,1,cluster gastronomia
+6,inviasoficial,invias oficial,1,invias oficial
+7,elmundoruedaxse,el mundo rueda x se,1,el mundo rueda x se
+8,mepasoalafm,me paso a la fm,1,me paso a la fm
+9,sehumano,se humano,1,se humano
+10,romerovive,romero vive,1,romero vive
+11,vamosmillosalafinal,vamos mil los a la final,0,vamos millos a la final
+12,mejorperiodo,mejor periodo,1,mejor periodo
+13,conductoragresivo,conductor agresivo,1,conductor agresivo
+14,caracolradio,caracol radio,1,caracolradio
+15,transmiseria,trans miseria,1,transmiseria
+16,novoyalandino,no voy al andino,1,no voy al andino
+17,transilenio,transi le ni o,0,transi le ni o
+18,elcrimendelsiglo,el crimen del siglo,1,el crimen del siglo
+19,viajaryganar,viajar y ganar,1,viajar y ganar
+20,adoptada,adoptada,1,adoptada
+21,felizmartes,feliz martes,1,feliz martes
+22,chinchemejia,chinche mejia,1,chinche mejia
+23,americas,americas,1,americas
+24,malparqueada,mal parque a da,0,mal parqueada
+25,ayuno,ayuno,1,ayuno
+26,sejuegaaestahora,se juega a esta hora,1,se juega a esta hora
+27,transitobogotad,transito bogota d,1,transito bogota d
+28,los120segundosdelgato,los 120 segundos del gato,1,los 120 segundos del gato
+29,endesarrollo,en desarrollo,1,en desarrollo
+30,jorgeantoniovega,jorge antonio vega,1,jorge antonio vega
+31,cronicastransmi,cronicas transmi,1,cronicas transmi
+32,jotavolatil,jota volatil,1,jota volatil
+33,reportan,reportan,1,reportan
+34,sitpbogota,sitp bogota,1,sitpbogota
+35,tempranoesmasbacano,temprano es mas baca no,0,temprano es mas bacano
+36,noticiasrcn,noticias rcn,1,noticiasrcn
+37,canalrcn,canal rcn,1,canalrcn
+38,rappicolombia,rapp i colombia,0,rappi colombia
+39,auntengohambre,a un tengo hambre,0,aun tengo hambre
+40,cesarflechas,cesar flechas,1,cesar flechas
+41,noctambulocity,noct ambu lo city,0,noctambulo city
+42,eltiempo,el tiempo,1,el tiempo
+43,ottogerardo,otto gerardo,1,otto gerardo
+44,policiabogota,policia bogota,1,policiabogota
+45,viviansalazar,vivian salazar,1,vivian salazar
+46,peluchesquiquesam,peluches quique sam,1,peluches quique sam
+47,fontibon,font ibon,0,fontibon
+48,stevenarce,steven arce,1,steven arce
+49,lacalera,la calera,1,la calera
+50,tmahora,tm ahora,1,tm ahora
+51,bogotasemueve,bogota se mueve,1,bogota se mueve
+52,noticiascapital,noticias capital,1,noticias capital
+53,prudenciaenlascalles,prudencia en las calles,1,prudencia en las calles
+54,naelamusic,naela music,1,naela music
+55,bluradioco,blu radio co,1,bluradioco
+56,seguridadbog,seguridad bog,1,seguridadbog
+57,lafmsiempre,la fm siempre,1,la fm siempre
+58,tranc,tranc,1,tranc
+59,sangre,sangre,1,sangre
+60,dictador3,dictador 3,1,dictador 3
+61,elojodlanoche,el ojo d la noche,1,el ojo d la noche
+62,eldandy,el dandy,1,el dandy
+63,puentearanda,puente aranda,1,puente aranda
+64,circunvalar,circunvalar,1,circunvalar
+65,fontibonsomost,font ibon somos t,0,fontibon somos t
+66,lafarradeespumas,la farra de espumas,1,la farra de espumas
+67,pachoherrerajr,pacho herrera jr,1,pacho herrera jr
+68,domingodememes,domingo de me mes,0,domingo de memes
+69,camaradamotero,camarada motero,1,camarada motero
+70,ma,ma,1,ma
+71,civicosbog,civic os bog,0,civicos bog
+72,movilidad,movilidad,1,movilidad
+73,cavaderosas,cava de rosas,1,cava de rosas
+74,bocadeseleccion,boca de seleccion,1,boca de seleccion
+75,uimunicipalista,ui municipalista,1,ui municipalista
+76,elsaximena,elsa ximena,1,elsa ximena
+77,animalesbog,animales bog,1,animales bog
+78,incidentevial,incidente vial,1,incidente vial
+79,sitpayuda,sitp ayuda,1,sitp ayuda
+80,kindergartenclassroom,kindergarten classroom,1,kindergarten classroom
+81,central,central,1,central
+82,elluquillo,el luquillo,1,el luquillo
+83,entusiasmo,entusiasmo,1,entusiasmo
+84,porlosamigostuiteros,por los amigos tuiteros,1,por los amigos tuiteros
+85,lareinalagarto,la reina lagarto,1,la reina lagarto
+86,rcnradio,rcn radio,1,rcn radio
+87,sectormovilidad,sector movilidad,1,sectormovilidad
+88,imprudencia,imprudencia,1,imprudencia
+89,noticiascaracol,noticias caracol,1,noticiascaracol
+90,elteamdelafuria,el team de la furia,1,el team de la furia
+91,toyotas,toyotas,1,toyotas
+92,noticiasuno,noticias uno,1,noticias uno
+93,arribabogota,arriba bogota,1,arriba bogota
+94,movilidadtotal,movilidad total,1,movilidad total
+95,cablenoticiasqr,cable noticias qr,1,cablenoticias qr
+96,lakalle,la kalle,1,la kalle
+97,elespectador,el espectador,1,el espectador
+98,ahora,ahora,1,ahora
+99,seguimoscontoda,seguimos con toda,1,seguimos con toda
+100,atravezdelvaso,atravez del vaso,1,atravez del vaso
+101,bestiasdriving,bestias driving,1,bestias driving
+102,transmilenio,transmilenio,1,transmilenio
+103,cazainfractor,caza infractor,1,caza infractor
+104,avenida,avenida,1,avenida
+105,pueblo,pueblo,1,pueblo
+106,forop,foro p,1,foro p
+107,trampasmortales,trampas mortales,1,trampas mortales
+108,calicalentura,cali calentura,1,cali calentura
+109,urgente,urgente,1,urgente
+110,impactoparanormal,impacto paranormal,1,impacto paranormal
+111,reporte,reporte,1,reporte
+112,socializar,socializar,1,socializar
+113,atencion,atencion,1,atencion
+114,facebooklive,facebook live,1,facebook live
+115,deespacio,de espacio,1,de espacio
+116,medimasepsnosedetiene,me dimas eps no se de tiene,0,medimas eps no se de tiene
+117,bogotaparticipa,bogota participa,1,bogota participa
+118,fuerasanguinettiperdedor,fuera sanguinetti perdedor,1,fuera sanguinetti perdedor
+119,bogota,bogota,1,bogota
+120,tristeza,tristeza,1,tristeza
+121,accidentedetransitobogota,accidente de transito bogota,1,accidente de transito bogota
+122,tranviabgta,tranvia bgt a,0,tranvia bgta
+123,laluciernaga,la lucie r naga,1,la luciernaga
+124,redmasnoticias,red mas noticias,1,red mas noticias
+125,citynoticiasfds,city noticias fds,1,citynoticias fds
+126,redmastv,red mas tv,1,red mas tv
+127,citynoticiasmd,city noticias md,1,citynoticias md
+128,bomberosbogota,bomberos bogota,1,bomberosbogota
+129,am,am,1,am
+130,infobogotaet,info bogota et,1,info bogota et
+131,noticia,noticia,1,noticia
+132,normandia,normandia,1,normandia
+133,tcccolombia,tcc colombia,1,tcc colombia
+134,ciudad,ciudad,1,ciudad
+135,alcaldiausaquen,alcaldia usa que n,0,alcaldia usaquen
+136,bibliotecasp,bibliotecas p,1,bibliotecas p
+137,ideal,ideal,1,ideal
+138,redapbogota,red a p bogota,0,red a p bogota
+139,lareporterasoyyo,la reportera soy yo,1,la reportera soy yo
+140,comparte,comparte,1,comparte
+141,aprevenirtodos,a prevenir todos,1,a prevenir todos
+142,patrudelanoche,pat rude la noche,0,pa trude la noche
+143,registroica,registro ica,1,registro ica
+144,mamadosdepetro,mama dos de petro,0,mama dos de petro
+145,motovallepuentearanda,moto valle puente aranda,1,moto valle puente aranda
+146,capitalnoticias,capital noticias,1,capital noticias
+147,actualidad,actualidad,1,actualidad
+148,envivo,en vivo,1,en vivo
+149,sectormovilidad1,sector movilidad 1,1,sectormovilidad 1
+150,seguridadvial,seguridad vial,1,seguridad vial
+151,mercedesbenzworld,mercedes benz world,1,mercedes benz world
+152,accidentevial,accidente vial,1,accidente vial
+153,noticiaendesarrollo,noticia en desarrollo,1,noticia en desarrollo
+154,queviolencia,que violencia,1,que violencia
+155,corferiasbogota,corferias bogota,1,corferias bogota
+156,youtube,youtube,1,youtube
+157,bogotiana,bogo tiana,0,bogo tiana
+158,estamostrabajando,estamos trabajando,1,estamos trabajando
+159,ultimahora,ultima hora,1,ultimahora
+160,andenes,andenes,1,andenes
+161,eltiempotele,el tiempo tele,1,el tiempo tele
+162,moto,moto,1,moto
+163,arcadia,arcadia,1,arcadia
+164,viernes,viernes,1,viernes
+165,candelaria,candelaria,1,candelaria
+166,canalcapital,canal capital,1,canalcapital
+167,expedienteuribev,expediente uribe v,1,expediente uribe v
+168,transitobogota,transito bogota,1,transito bogota
+169,purapasion,pura pasion,1,pura pasion
+170,gabodelascasas,gabo de las casas,1,gabo de las casas
+171,bellavista,bellavista,1,bellavista
+172,colombiahardcore,colombia hardcore,1,colombia hardcore
+173,motero,motero,1,motero
+174,worldpressphoto,world press photo,1,world press photo
+175,enestemomento,en este momento,1,en este momento
+176,fallontonight,fallon tonight,1,fallon tonight
+177,lamega,la mega,1,la mega
+178,obteniendoconciencia,obteniendo conciencia,1,obteniendo conciencia
+179,umvbogota,um v bogota,0,umv bogota
+180,bogotaabierta,bogota abierta,1,bogota abierta
+181,6amcaracol,6am caracol,1,6am caracol
+182,citynoticias,city noticias,1,citynoticias
+183,primersolodefagot,primer solo de fagot,1,primer solo de fagot
+184,atentos,atentos,1,atentos
+185,locsancristobal,lo c san cristobal,1,lo c sancristobal
+186,somosla92,somos la 92,1,somos la 92
+187,sabadosanto,sabado santo,1,sabado santo
+188,alcaldiakennedy,alcaldia kennedy,1,alcaldia kennedy
+189,curulesdelasvictimashttps,curules de las victimas https,1,curules de las victimas https
+190,lamilitar,la militar,1,la militar
+191,travelawesome,travel awesome,1,travel awesome
+192,mabellaranews,mabel lara news,1,mabel lara news
+193,caracoltv,caracol tv,1,caracol tv
+194,leydelembudo,ley del embudo,1,ley del embudo
+195,reddeapoyosic,red de apoyo sic,1,red de apoyo si c
+196,vivianarock,viviana rock,1,viviana rock
+197,bogotatransito,bogota transito,1,bogotatransito
+198,malditapelired,maldita peli red,1,maldita peli red
+199,alkosto,al kost o,1,alkosto
+200,amariloconstruyendopais,amari lo construyendo pais,0,amarilo construyendo pais
+201,pentecostesversion,pentecostes version,1,pentecostes version
+202,parroquialasagradaeucaristia,parroquia la sagrada eucaristia,1,parroquia la sagrada eucaristia
+203,accidente,accidente,1,accidente
+204,hospitalsuba,hospital suba,1,hospital suba
+205,fiscaliacol,fiscalia col,1,fiscalia col
+206,desdeelbalc,desde el balc,1,desde el balc
+207,idubogota,idu bogota,1,idubogota
+208,cesarsinarte,cesar sin arte,1,cesar sin arte
+209,lafucssabedesalud,la fu cs sabe de salud,0,la fu cs sabe de salud
+210,trasmilenio,tras milenio,0,trasmilenio
+211,colmo,colmo,1,colmo
+212,chapinero,chapinero,1,chapinero
+213,emergenciasbgt,emergencias bgt,1,emergencias bgt
+214,aestahora,a esta hora,1,a esta hora
+215,excesodevelocidad,exceso de velocidad,1,exceso de velocidad
+216,fueradelestudio,fuera del estudio,1,fuera del estudio
+217,reportandoando,reportando ando,1,reportando ando
+218,concepciontang,concepcion tang,1,concepcion tang
+219,cruzrojabogota,cruz roja bogota,1,cruz roja bogota
+220,alertabogota,alerta bogota,1,alerta bogota
+221,protegeryservir,proteger y servir,1,proteger y servir
+222,quenotedejeelavi,que no te deje el a vi,1,que no te deje el a vi
+223,ambientebogotacon,ambiente bogota con,1,ambiente bogota con
+224,calle80,calle 80,1,calle 80
+225,transito,transito,1,transito
+226,movilidadbogota,movilidad bogota,1,movilidad bogota
+227,domingofitness,domingo fitness,1,domingo fitness
+228,policia,policia,1,policia
+229,deporteysalud,deporte y salud,1,deporte y salud
+230,felizviernes,feliz viernes,1,feliz viernes
+231,sectorsalud,sector salud,1,sector salud
+232,avenida68,avenida 68,1,avenida 68
+233,trafico,trafico,1,trafico
+234,tutransitobta,tu transito bt a,0,tu transitobta
+235,calera,calera,1,calera
+236,rutassitp,rutas sitp,1,rutas sitp
+237,publimetrocol,publimetro col,1,publimetro col
+238,endesarrllo,en de sarr l lo,0,en desarr l lo
+239,pendiente,pendiente,1,pendiente
+240,patincarrerachile,patin carrera chile,1,patin carrera chile
+241,vamosmisantafe,vamos mi santa fe,1,vamos mi santafe
+242,proteccionalideres,proteccion a lideres,1,proteccion a lideres
+243,elcaracterdecristo,el caracter de cristo,1,el caracter de cristo
+244,transitobta,transito bt a,0,transitobta
+245,bajemoslealavelocidad,bajemos le a la velocidad,0,bajemosle a la velocidad
+246,artistasnacionales,artistas nacionales,1,artistas nacionales
+247,muerto,muerto,1,muerto
+248,todosecuraconamor,todo se cura con amor,1,todo se cura con amor
+249,elnoct,el noct,1,el noct
+250,wradiocolombia,w radio colombia,1,wradio colombia
+251,hotelestequenda,hotel este que nda,0,hotel este que nda
+252,ahumamosloquehacemos,a hum amos lo que hacemos,0,ahuma mos lo que hacemos
+253,localidad16,localidad 16,1,localidad 16
+254,calle13,calle 13,1,calle 13
+255,visioncerobog,vision cero bog,1,vi si oncerobog
+256,picoyplacaambiental,pico y placa ambiental,1,pico y placa ambiental
+257,colegiosanbartolomelamercedoficial,colegio san bartolome la merced oficial,1,colegio san bartolome la merced oficial
+258,cablenoticias,cable noticias,1,cablenoticias
+259,chavismoenergiayvictoria,chavismo energia y victoria,1,chavismo energia y victoria
+260,sitp,sitp,1,sitp
+261,pieljovenytonificada,piel joven y tonificada,1,piel joven y tonificada
+262,lineasdevida,lineas de vida,1,lineas de vida
+263,lafm,la fm,1,la fm
+264,cuartafecha,cuarta fecha,1,cuarta fecha
+265,teodiosoldebogot,te odio sol debo got,0,te odio sol de bogot
+266,amorfelino,amor felino,1,amor felino
+267,terapiasmasalla,terapias mas al la,0,terapias mas al la
+268,restrepo,restrepo,1,restrepo
+269,policiacolombia,policia colombia,1,policia colombia
+270,vialidad,vialidad,1,vialidad
+271,movilidadestereo,movilidad estereo,1,movilidad estereo
+272,acueducto,acueducto,1,acueducto
+273,sincandadoradio,sin candado radio,1,sincandadoradio
+274,semanasanta,semana santa,1,semana santa
+275,caracolesm,caracoles m,1,caracoles m
+276,usme,usme,1,usme
+277,maderas,maderas,1,maderas
+278,todamiboda,toda mi boda,1,toda mi boda
+279,wazetrafficbog,waze traffic bog,1,waze traffic bog
+280,usaquenet,usa que net,0,usaquen et
+281,frackingcolombia,fracking colombia,1,fracking colombia
+282,alexenlacalle,alex en la calle,1,alex en la calle
+283,reportets,reporte ts,1,reporte ts
+284,domiciliosbogot,domicilios bo got,0,domicilios bogot
+285,diarioextrabogo,diario extra bogo,1,diario extra bogo
+286,movistarco,movistar co,1,movistar co
+287,alaire,al aire,1,al aire
+288,objetadoduque,objetado duque,1,objetado duque
+289,deportescon,deportes con,1,deportes con
+290,numeral767,numeral 767,1,numeral 767
+291,movilidadinteligente,movilidad inteligente,1,movilidad inteligente
+292,cali,cali,1,cali
+293,aguantelaempanada,aguante la empanada,1,aguante la empanada
+294,nqs,nqs,1,nqs

@@ -79,6 +79,8 @@ class Preprocessing(BaseEstimator, TransformerMixin):
     """ 6 """
     def cleaning_lemma(self, doc):
         #Lemma without removes stopwords
+        #Se excluye la palabra 'calle', debido a que en español SpaCy puede mal interpretarlo como lema del
+        #verbo callar
         txt = [(token.lemma_ if token.text != 'calle' else token.text) for token in doc]    
         if len(txt) > 4:
             return ' '.join(txt)
@@ -114,6 +116,10 @@ class Preprocessing(BaseEstimator, TransformerMixin):
         elif self.type_clean == 5:
             clean_fn = self.cleaning_stem
         elif self.type_clean == 6:
+            clean_fn = self.cleaning_lemma
+        elif self.type_clean == 7:
+            brief_cleaning = (re.sub("(@[A-Za-z0-9]+)|((?<=[A-Za-z])(?=[A-Z][a-z]))|([^A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙñÑ])|(\w+:\/\/\S+)",
+                             ' ', str(row)) for row in X)
             clean_fn = self.cleaning_lemma
         else:
             print("Error: ("+str(self.type_clean)+") No es una opción válida")

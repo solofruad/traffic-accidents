@@ -1,0 +1,5 @@
+Este entrenamiento se hizo con negative sampling = 5
+
+window  5
+ns      5
+size    200

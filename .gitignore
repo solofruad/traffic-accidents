@@ -42,3 +42,5 @@ model/notebook/1 Tweets Clasification/5 Filtering/model_m5_tfidf_rf_1_true\.pkl
 model/notebook/0 Generating Model/4 Generate pipeline/old/
 
 model/notebook/1 Tweets Clasification/5 Filtering/old_models/
+
+model/data/v1/NER/spacy_model/

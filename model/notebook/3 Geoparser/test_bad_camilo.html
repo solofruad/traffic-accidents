@@ -1,0 +1,235 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Geo Twitter</title>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyAuHkP89-zjfiZCWT4MXNDD7fdn2F7Pqpk"></script>
+<script type="text/javascript">
+    function initialize() {
+        var map = new google.maps.Map(document.getElementById("map_canvas"), {
+            zoom: 13,
+            center: new google.maps.LatLng(4.626383, -74.105074)
+        });
+
+        var marker_icon_FF0000 = {
+            url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAiCAYAAACwaJKDAAAABmJLR0QA/wD/AP+gvaeTAAACBklEQVRIia3VzUtUURgH4GdG/AiyZZShtWgXUbSIFtGqRYtqWRLhXyBYf0K6MaJQ2gRtayHtijYpleHKSCgIcRHoIiOSKEzLKea0OOeqTfPlzPzg5Qwz9zz3nXPvPTeneo7gNA4gjyI+Ygbva8z9L2cxi9BHOE+4msY+gliz6biayWE0R7GfMEcoEkJJzRH6CbnY+WiaVxEc6yY8KQOVq8eE7tj1WCV4qIswUyeY1QyhK8JDpWAP1m7vEMzqTkTXkrOZkYOEQoNogXAowiPE2wQuDqC9nktZJu0YSE72XRs2phrsMqup2OkG2vLpRB19DXaZJc3vQHv294Um0e3z8yigsNQkmuYXUMie5/npJtE0fz55YLiXsNHELdUbV2B4+4n2Y/Vmg+itCK4m558MdhBe7hCcJnRGdLDS0ox3E17XCb4h7IngeLX1zuFhD2G5BriytY4Tqmx9WXbh3Tnl99KsLkdwAbtrgVmO4/eDCuCkzd3/TL1glru9hF8lYJFwMoKPdgrCXqzfL0GfR7CIo42gcO9YCXopolONgnAC4W0Cv9l8dVxpBoWFGwmdiOC6Glc8X+3HlKeT6cOzOLzAjyaaBBc602ZzOHZ6vVkQ9kl7Qi6ip1qBwpdrEfwjPnFVU8+awuKrOC7hZ6vQlQ9baM3Ui379HsfVVqKf07jcSvRTGhfrOfgvIP3ECS77BDoAAAAASUVORK5CYII=",
+            labelOrigin: new google.maps.Point(10, 11)
+        };
+
+        var info_marker_0 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.587165, -74.086194),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_0 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>@NoticiasCaracol accidente en la kr 10 con cl 1 c en la estacion de TM del policaparpa furgon se estrello contra poste de informacion https://t.co/0ZcN6Ifex2<br><b>Created at: </b>2018-11-07 2:51:21<br><b>Link: </b><a href=\'https://twitter.com/i/status/1,06007722904305E+018\' target=\'_blank\'>https://twitter.com/i/status/1,06007722904305E+018</a><br><b>Entities: </b>[(\'kr 10 con cl 1 c\', \'loc\'), (\'estacion de TM del policaparpa\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.587165, \'lng\': -74.08619449999999}'
+        });
+        
+        info_marker_0.addListener('click', function() {
+            info_window_0.open(map, info_marker_0);
+        });
+
+        var info_marker_1 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.638194, -74.084046),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_1 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>@Citytv anoche ocurrió un accidente en frente de la universidad nacional, un motociclista calló del puente de la crr 30 con calle 45 https://t.co/rFZH7lhlqJ<br><b>Created at: </b>2019-02-24 10:17:18<br><b>Link: </b><a href=\'https://twitter.com/i/status/1,09968973395603E+018\' target=\'_blank\'>https://twitter.com/i/status/1,09968973395603E+018</a><br><b>Entities: </b>[(\'universidad nacional\', \'loc\'), (\'puente\', \'loc\'), (\'crr 30 con calle 45\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.6381938, \'lng\': -74.08404639999999}'
+        });
+        
+        info_marker_1.addListener('click', function() {
+            info_window_1.open(map, info_marker_1);
+        });
+
+        var info_marker_2 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.640565, -74.055380),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_2 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>Av circunvalar con calle 53 accidente de dos motos por alta velocidad  por varios minutos fue cerrada la via.<br><b>Created at: </b>2019-05-07 6:22:09<br><b>Link: </b><a href=\'https://twitter.com/i/status/1,12572248205976E+018\' target=\'_blank\'>https://twitter.com/i/status/1,12572248205976E+018</a><br><b>Entities: </b>[(\'Av circunvalar con calle 53\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.6405651, \'lng\': -74.05537989999999}'
+        });
+        
+        info_marker_2.addListener('click', function() {
+            info_window_2.open(map, info_marker_2);
+        });
+
+        var info_marker_3 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.617212, -74.061498),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_3 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>#MovilidadBogotá  #acueducto #Trancón  #Accidente llevó 3 horas en el carro bajando de la calera y muchos Buses escolares con niños pequeños de los colegios, nada que quitan el camión del acueducto que se accidentó en la circunvalar con 85, TERRIBLE!!!! 😡😡😡<br><b>Created at: </b>2019-05-23 18:43:36<br><b>Link: </b><a href=\'https://twitter.com/i/status/1,13170728076703E+018\' target=\'_blank\'>https://twitter.com/i/status/1,13170728076703E+018</a><br><b>Entities: </b>[(\'3 horas\', \'time\'), (\'la calera\', \'loc\'), (\'circunvalar con 85\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.6172124, \'lng\': -74.06149835}'
+        });
+        
+        info_marker_3.addListener('click', function() {
+            info_window_3.open(map, info_marker_3);
+        });
+
+        var info_marker_4 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.743905, -74.137100),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_4 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>@InviasOficial ,@numeral767 ,@BogotaseMueve . Tráfico detenido entrando a bogota por la cll 80 a la altura de Siberia ,Hora y media esperando.<br><b>Created at: </b>2019-07-06 12:19:37<br><b>Link: </b><a href=\'https://twitter.com/i/status/1,14755571252191E+018\' target=\'_blank\'>https://twitter.com/i/status/1,14755571252191E+018</a><br><b>Entities: </b>[(\'cll 80\', \'loc\'), (\'Siberia\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.7439051, \'lng\': -74.1371001}'
+        });
+        
+        info_marker_4.addListener('click', function() {
+            info_window_4.open(map, info_marker_4);
+        });
+
+        var info_marker_5 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.742830, -74.048192),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_5 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>#AEstaHora Colapsada autopista norte con calle 153 sentido norte sur por choque de vehículo contra camión. Autoridades ya se encuentran en el lugar. La noticia en https://t.co/ZDezBjy2V6 https://t.co/CXbPvaSriW<br><b>Created at: </b>2019-07-12 6:17:42<br><b>Link: </b><a href=\'https://twitter.com/i/status/1,14963896032848E+018\' target=\'_blank\'>https://twitter.com/i/status/1,14963896032848E+018</a><br><b>Entities: </b>[(\'autopista norte con calle 153\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.74283, \'lng\': -74.0481921}'
+        });
+        
+        info_marker_5.addListener('click', function() {
+            info_window_5.open(map, info_marker_5);
+        });
+
+        var info_marker_6 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.669388, -74.154799),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_6 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>@SectorMovilidad choque simple de tractomula con bus municipal sobre la Calle 13 con Cra 104. Bloqueo total! No hay Policía de transito<br><b>Created at: </b>2018-11-08 18:59:20<br><b>Link: </b><a href=\'https://twitter.com/i/status/1,06068321738318E+018\' target=\'_blank\'>https://twitter.com/i/status/1,06068321738318E+018</a><br><b>Entities: </b>[(\'Calle 13 con Cra 104\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.669387649999999, \'lng\': -74.15479925}'
+        });
+        
+        info_marker_6.addListener('click', function() {
+            info_window_6.open(map, info_marker_6);
+        });
+
+        var info_marker_7 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.636928, -74.095014),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_7 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>Americas por 50, volcamiento de bus del sitp, por fortuna sin lesionados. Unidades cívicas en… https://t.co/G2cYJYNqJt<br><b>Created at: </b>2016-08-06 2:19:24<br><b>Link: </b><a href=\'https://twitter.com/i/status/7,61823976700121E+017\' target=\'_blank\'>https://twitter.com/i/status/7,61823976700121E+017</a><br><b>Entities: </b>[(\'Americas por 50\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.636928300000001, \'lng\': -74.0950141}'
+        });
+        
+        info_marker_7.addListener('click', function() {
+            info_window_7.open(map, info_marker_7);
+        });
+
+        var info_marker_8 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.714927, -74.043070),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_8 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>Carrera 20 por 140 volcamiento de un vehículo de transporte especial. Por fortuna no resulta… https://t.co/bIre31166h<br><b>Created at: </b>2016-08-30 18:22:46<br><b>Link: </b><a href=\'https://twitter.com/i/status/7,70763722210046E+017\' target=\'_blank\'>https://twitter.com/i/status/7,70763722210046E+017</a><br><b>Entities: </b>[(\'Carrera 20 por 140\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.714927175, \'lng\': -74.043070475}'
+        });
+        
+        info_marker_8.addListener('click', function() {
+            info_window_8.open(map, info_marker_8);
+        });
+
+        var info_marker_9 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.646872, -74.079946),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_9 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>Carrera 30 por 53 choque entre dos vehículos de servicio público, una personas lesionada.… https://t.co/LRLbCiYelo<br><b>Created at: </b>2017-06-11 3:49:15<br><b>Link: </b><a href=\'https://twitter.com/i/status/8,73824438684312E+017\' target=\'_blank\'>https://twitter.com/i/status/8,73824438684312E+017</a><br><b>Entities: </b>[(\'Carrera 30 por 53\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.646872200000001, \'lng\': -74.07994575}'
+        });
+        
+        info_marker_9.addListener('click', function() {
+            info_window_9.open(map, info_marker_9);
+        });
+
+        var info_marker_10 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.694708, -74.086188),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_10 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>En la Av. Boyacá por 11 se presentó una colisión entre dos motocicletas; dos unidades de la policía resultaron lesionadas. Unidades cívicas brindaron apoyo en el lugar. https://t.co/FvwavGHYLd<br><b>Created at: </b>2019-02-24 12:06:00<br><b>Link: </b><a href=\'https://twitter.com/i/status/1,09971709037673E+018\' target=\'_blank\'>https://twitter.com/i/status/1,09971709037673E+018</a><br><b>Entities: </b>[(\'Av. Boyacá por 11\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.694707999999999, \'lng\': -74.086188}'
+        });
+        
+        info_marker_10.addListener('click', function() {
+            info_window_10.open(map, info_marker_10);
+        });
+
+        var info_marker_11 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.668081, -74.100094),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_11 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>En la calle 63 Por 24 se presenta un accidente donde se ven involucrados un vehículo de servicio público y una motocicleta. Tres personas resultaron lesionadas; nuestras unidades en el… https://t.co/GwPDDYWg5z<br><b>Created at: </b>2018-11-24 0:33:17<br><b>Link: </b><a href=\'https://twitter.com/i/status/1,06620307625468E+018\' target=\'_blank\'>https://twitter.com/i/status/1,06620307625468E+018</a><br><b>Entities: </b>[(\'calle 63 Por 24\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.668080799999999, \'lng\': -74.10009409999999}'
+        });
+        
+        info_marker_11.addListener('click', function() {
+            info_window_11.open(map, info_marker_11);
+        });
+
+        var info_marker_12 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.710469, -74.111400),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_12 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>@JotaVolatil Una tractomula se llevó a un motociclista por los cementerios de la salida de la 80 hay trancón<br><b>Created at: </b>2018-12-18 6:35:59<br><b>Link: </b><a href=\'https://twitter.com/i/status/1,07499166284845E+018\' target=\'_blank\'>https://twitter.com/i/status/1,07499166284845E+018</a><br><b>Entities: </b>[(\'la 80\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.710469, \'lng\': -74.11140019999999}'
+        });
+        
+        info_marker_12.addListener('click', function() {
+            info_window_12.open(map, info_marker_12);
+        });
+
+        var info_marker_13 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.618666, -74.086342),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_13 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>*Accidentes con lesiones *Por la avenida NQS con calle 19 en sentido sur - norte chocan una grúa y una motocicleta, una persona lesionada<br><b>Created at: </b>2019-02-05 7:18:46<br><b>Link: </b><a href=\'https://twitter.com/i/status/1,09275943379552E+018\' target=\'_blank\'>https://twitter.com/i/status/1,09275943379552E+018</a><br><b>Entities: </b>[(\'avenida NQS con calle 19\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.6186661, \'lng\': -74.0863416}'
+        });
+        
+        info_marker_13.addListener('click', function() {
+            info_window_13.open(map, info_marker_13);
+        });
+
+        var info_marker_14 = new google.maps.Marker({
+            position: new google.maps.LatLng(4.679109, -74.160104),
+            icon: marker_icon_FF0000,
+            map: map
+        });
+
+        var info_window_14 = new google.maps.InfoWindow({
+            content: '<b>Tweet: </b>CALI X 15 S-N (FRENTE A FRIGORIFICO SAN MARTIN): Se presenta incidente vial entre particulares.<br><b>Created at: </b>2018-06-27 6:39:39<br><b>Link: </b><a href=\'https://twitter.com/i/status/1,0119370961799E+018\' target=\'_blank\'>https://twitter.com/i/status/1,0119370961799E+018</a><br><b>Entities: </b>[(\'CALI X 15\', \'loc\'), (\'FRIGORIFICO SAN MARTIN\', \'loc\')]<br><b>Coordinates: </b>{\'lat\': 4.6791086, \'lng\': -74.1601036}'
+        });
+        
+        info_marker_14.addListener('click', function() {
+            info_window_14.open(map, info_marker_14);
+        });
+
+    }
+</script>
+</head>
+<body style="margin:0px; padding:0px;" onload="initialize()">
+    <div id="map_canvas" style="width: 100%; height: 100%;" />
+</body>
+</html>

@@ -51,7 +51,8 @@ def tsv_to_json_format(input_path,output_path,unknown_label):
                             
                 for entities in label_list:
                     label={}
-                    label['label']=[entities[0]]
+                    label['label']=[entities[0]]                    
+                    #label['label']=[entities[0].split("-")[1].upper()]
                     label['points']=entities[1:]
                     annotations.append(label)
                 data_dict['annotation']=annotations
@@ -66,5 +67,5 @@ def tsv_to_json_format(input_path,output_path,unknown_label):
         return None
 
 file = 'ner-crf-training-data.tsv'
-dir_ = "../../../data/v1/NER/"
-tsv_to_json_format(dir_+file,dir_+'ner_corpus_50.json','abc')
+dir_ = "../../../data/v1/NER/train/"
+tsv_to_json_format(dir_+file,dir_+'ner_corpus_train_complete.json','abc')

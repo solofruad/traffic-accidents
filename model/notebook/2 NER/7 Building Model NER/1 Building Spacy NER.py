@@ -27,7 +27,7 @@ nat = Natural Phenomenon
 """
 # Loading training data 
 file = 'ner_corpus_spacy_train'
-dir_ = "../../../data/v1/NER/"
+dir_ = "../../../data/v1/NER/train/"
 with open (dir_+file, 'rb') as fp:
     TRAIN_DATA = pickle.load(fp)
 
@@ -65,12 +65,12 @@ def main(model=None, new_model_name='new_model', output_dir=None, n_iter=10):
         for itn in range(n_iter):
             random.shuffle(TRAIN_DATA)
             losses = {}
-            batches = minibatch(TRAIN_DATA, size=compounding(4., 32., 1.001))
+            batches = minibatch(TRAIN_DATA, size=compounding(4., 32., 1.001)) #compounding(4., 32., 1.001))
             for batch in batches:
                 texts, annotations = zip(*batch)
-                nlp.update(texts, annotations, sgd=optimizer, drop=0.35,
+                nlp.update(texts, annotations, sgd=optimizer, drop=0.35, #drop=0.35
                            losses=losses)
-            print('Losses', losses)
+            print(itn,'Losses', losses)
 
     # Test the trained model
     test_text = 'accidente en la calle 7 con 14 frente a la estación los martires'
@@ -98,6 +98,8 @@ def main(model=None, new_model_name='new_model', output_dir=None, n_iter=10):
 """
 Comando para run
 python 1\ Building\ Spacy\ NER.py -m es_core_news_lg -o /home/hat/code/traffic-accidents/model/data/v1/NER/spacy_model/ -n 500
+
+python 1\ Building\ Spacy\ NER.py -m es_core_news_lg -o /home/hat/code/traffic-accidents/model/data/v1/NER/spacy_model_complete/ -n 500
 """
 if __name__ == '__main__':
     plac.call(main)

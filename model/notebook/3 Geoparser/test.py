@@ -15,7 +15,7 @@ from classes.tweet2accident.enviroments import Global
 ## Variables para importar modelos y demás
 dir_ = "../../data/v1/NER/"
 
-file = 'ner_dataset_geocoding.tsv' # Dataset
+file = 'ner_dataset_geocoding_v2.tsv' # Dataset
 
 api_key = Global()
 
@@ -60,5 +60,5 @@ tweets_bad = dataset[dataset['id_tweet'].apply(select_rows_bad)]
 tweets_ok = dataset[dataset['id_tweet'].apply(select_rows_ok)]
 
 
-tweets_ok.to_csv(dir_+"ner_dataset_test_ok.tsv",sep='\t')
-tweets_bad.to_csv(dir_+"ner_dataset_test_bad.tsv",sep='\t')
+tweets_ok.to_csv(dir_+"ner_dataset_test_ok_v2.tsv",sep='\t')
+tweets_bad.to_csv(dir_+"ner_dataset_test_bad_v2.tsv",sep='\t')

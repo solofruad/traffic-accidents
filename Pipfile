@@ -39,6 +39,7 @@ spyder = "==4.2.0"
 black = "*"
 ipykernel = "*"
 flask = "*"
+orange3 = "*"
 
 [dev-packages]
 black = "*"

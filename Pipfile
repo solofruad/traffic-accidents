@@ -40,6 +40,8 @@ black = "*"
 ipykernel = "*"
 flask = "*"
 orange3 = "*"
+shapely = "*"
+geopandas = "*"
 
 [dev-packages]
 black = "*"

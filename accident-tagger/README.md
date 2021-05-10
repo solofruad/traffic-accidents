@@ -21,15 +21,6 @@ This app was originally generated on Thu May 23 2019 16:31:24 GMT-0500 (-05) usi
 Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
 -->
 
-### TODO
-* <s>Pulir cosas de interfaz link sueltos o algo parecido</s>
-* Hacer funcionar correo electronico y contacto para cualquier correo electronico (es decir, mailgun lo permita)
-* Poner logo en correo electronico layout-email.ejs, cambiar nombre en asunto de correo
-* <s>Si la persona creo una cuenta, que no muestre tweets para etiquetar si el email no ha sido verificado</s>
-* <s>Hay q cambiar el asunto de los correos "Nestor Suat de Plas o algo asi</s>
-* <s>Que este responsive</s>
-* <s>Montar la base de datos</s>
-* Hacer deploy
  
 ### Comandos de interes
 * sails generate page things/available-things

@@ -63,11 +63,8 @@ for row in range(len(geocoding)):
 
 dataset.info()
 
-#df_oct_nov_dic_ = dataset.dropna(subset=['lat','lon'])
-#df_oct_nov_dic_.to_csv(dir_+"accident_tweets_lat_lon_3_months.tsv",sep='\t',index=False)
-
-df_geocoding = dataset.dropna(subset=['lat','lon'])
-df_geocoding.to_csv(dir_+"accident_tweets_lat_lon_geocord.tsv",sep='\t',index=False)
+df_oct_nov_dic_ = dataset.dropna(subset=['lat','lon'])
+df_oct_nov_dic_.to_csv(dir_+"accident_tweets_lat_lon_3_months.tsv",sep='\t',index=False)
 
 
 #Guardando dataset original con lat y lon agregado
@@ -76,10 +73,7 @@ dataset.to_csv(dir_+"accident_tweets_lat_lon.tsv",sep='\t',index=False)
 
 
 
-init = '2019-07-01'
-end = '2019-08-01'
 
-df = dataset[(dataset['created_at'] >= init) & (dataset['created_at'] < end)]
 
 
 

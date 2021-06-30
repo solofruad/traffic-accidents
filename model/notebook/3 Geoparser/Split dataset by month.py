@@ -92,3 +92,65 @@ end = '2019-02-01'
 df, df_format = selected_month_dataset(dataset, month, init, end)
 
 save_split_dataframes(df_format, month)
+
+########33############################ FEBRERO ####################################
+
+month = "febrero"
+init = '2019-02-01'
+end = '2019-03-01'
+
+df, df_format = selected_month_dataset(dataset, month, init, end)
+
+save_split_dataframes(df_format, month)
+
+########33############################ MARZO ####################################
+
+month = "marzo"
+init = '2019-03-01'
+end = '2019-04-01'
+
+df, df_format = selected_month_dataset(dataset, month, init, end)
+
+save_split_dataframes(df_format, month)
+
+
+########33############################ ABRIL ####################################
+
+month = "abril"
+init = '2019-04-01'
+end = '2019-05-01'
+
+df, df_format = selected_month_dataset(dataset, month, init, end)
+
+save_split_dataframes(df_format, month)
+
+########33############################ MNAYO ####################################
+
+month = "mayo"
+init = '2019-05-01'
+end = '2019-06-01'
+
+df, df_format = selected_month_dataset(dataset, month, init, end)
+
+save_split_dataframes(df_format, month)
+
+########33############################ JUNIO ####################################
+
+month = "junio"
+init = '2019-06-01'
+end = '2019-07-01'
+
+df, df_format = selected_month_dataset(dataset, month, init, end)
+
+save_split_dataframes(df_format, month)
+
+########33############################ JUNIO ####################################
+
+month = "julio"
+init = '2019-07-01'
+end = '2019-08-01'
+
+df, df_format = selected_month_dataset(dataset, month, init, end)
+
+save_split_dataframes(df_format, month)
+

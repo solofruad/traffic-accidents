@@ -35,12 +35,18 @@ def isBogota(loc):
 #dir_ = "../../data/v1/NER/"
 #file = "ner_dataset_norm_lat_lon.tsv"
 
+### Oficial database
+#dir_ = "../../data/database/"
+#file = "historico_oficial_accidentes.tsv"
+
 dir_ = '../../data/database/output_ml/M1/NER_extractor/'
-file = 'accident_tweets_lat_lon_3_months.tsv'
+#file = 'accident_tweets_lat_lon_3_months.tsv'
+file = 'accident_tweets_lat_lon_geocord_bogota.tsv'
 
 
 dataset = pd.read_csv(dir_+file,sep="\t")
 del dataset["Unnamed: 0"]
+#aux = dataset.drop_duplicates(subset=['id_tweet'])
 #dataset.gmap = dataset.gmap.apply(literal_eval)
 
 
@@ -57,7 +63,7 @@ aux = dataset.apply(isBogota, axis=1)
 #dataset = dataset[dataset.gmap.apply(isBogotaGmap)]
 dataset = dataset[dataset.apply(isBogota, axis=1)]
 
-dataset.to_csv(dir_+"accident_tweets_lat_lon_3_months_bogota.tsv",sep='\t',index=False)
+dataset.to_csv(dir_+"historico_oficial_accidentes_bogota.tsv",sep='\t',index=False)
 
 
 
